@@ -1,15 +1,39 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import './App.css';
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
+import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
+import Root from "./pages/Root";
+import SearchResult from "./pages/SearchResult";
+import Watch from "./pages/Watch";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    errorElement: <NotFound />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: "/search",
+        element: <SearchResult />,
+      },
+      {
+        path: "/watch",
+        element: <Watch />,
+      },
+    ],
+  },
+]);
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  return (
-    <div className="App">
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
