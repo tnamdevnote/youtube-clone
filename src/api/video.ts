@@ -7,6 +7,7 @@ export async function getTrendingVideos() {
     params: {
       part: ["snippet", "contentDetails", "statistics"],
       chart: "mostPopular",
+      maxResults: 25,
       regionCode: "US",
     },
   });
