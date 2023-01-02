@@ -1,7 +1,9 @@
 import React from 'react'
 
-export default function PageManager() {
-  return (
-    <div>PageManager</div>
-  )
+interface PageMangerProps {
+  children: React.ReactNode;
+}
+
+export default function PageManager({ children }: PageMangerProps) {
+  return <div>{children}</div>;
 }
