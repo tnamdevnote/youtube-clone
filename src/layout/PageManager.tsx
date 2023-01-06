@@ -5,5 +5,5 @@ interface PageMangerProps {
 }
 
 export default function PageManager({ children }: PageMangerProps) {
-  return <div className="">{children}</div>;
+  return <div>{children}</div>;
 }

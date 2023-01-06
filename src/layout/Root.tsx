@@ -5,11 +5,11 @@ import PageManager from "./PageManager";
 
 export default function Root() {
   return (
-    <div className="">
+    <>
       <Header />
       <PageManager>
         <Outlet />
       </PageManager>
-    </div>
+    </>
   );
 }
