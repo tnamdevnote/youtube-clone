@@ -1,11 +1,11 @@
 import React from "react";
-import { NavLink, Outlet } from "react-router-dom";
-import Header from "../layout/Header";
-import PageManager from "../layout/PageManager";
+import { Outlet } from "react-router-dom";
+import Header from "./Header";
+import PageManager from "./PageManager";
 
 export default function Root() {
   return (
-    <div>
+    <div className="">
       <Header />
       <PageManager>
         <Outlet />
