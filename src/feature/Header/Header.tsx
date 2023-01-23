@@ -31,7 +31,7 @@ export default function Header() {
     <header className="flex h-14 sm:justify-between">
       <div className="start w-14 bg-yt-menu-background sm:w-auto">
         {isSearch && !(screenWidth > breakPoint) ? (
-          <IconButton onClick={() => toggleSearch()}>
+          <IconButton onClick={toggleSearch}>
             <ArrowBackIcon />
           </IconButton>
         ) : (
@@ -42,12 +42,12 @@ export default function Header() {
         {isSearch || screenWidth > breakPoint ? (
           <SearchBar onFocus={showSearch} />
         ) : (
-          <IconButton className="ml-auto" onClick={() => toggleSearch()}>
+          <IconButton className="ml-auto" onClick={toggleSearch}>
             <SearchIcon />
           </IconButton>
         )}
       </div>
-      <div className="end w-14 bg-yt-menu-background">Dropdown</div>
+      <div className="end w-20 bg-yt-menu-background">Dropdown</div>
     </header>
   );
 }
