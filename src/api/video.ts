@@ -5,7 +5,7 @@ const ENDPOINT = "/videos";
 export async function getTrendingVideos() {
   const { data } = await axios.get(ENDPOINT, {
     params: {
-      part: ["snippet", "contentDetails", "statistics"],
+      part: "snippet,  contentDetails, statistics",
       chart: "mostPopular",
       maxResults: 25,
       regionCode: "US",
