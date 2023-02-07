@@ -25,11 +25,15 @@ function Thumbnail({
 }
 
 function Body({ children }: Props) {
-  return <div>{children}</div>;
+  return <div className="h-26">{children}</div>;
 }
 
 function Title({ children }: Props) {
-  return <h2>{children}</h2>;
+  return (
+    <h2 className="md:text-md mt-2 mb-1 max-h-11 overflow-hidden text-ellipsis sm:max-h-10 sm:text-sm md:text-base">
+      {children}
+    </h2>
+  );
 }
 
 function Subtitle({ children }: Props) {

@@ -13,7 +13,7 @@ export default function Header() {
     setTrue: showSearch,
     toggle: toggleSearch,
   } = useBoolean();
-  const breakPoint = 512;
+  const breakPoint = 600;
 
   const handleScreenResize = useCallback(() => {
     setScreenWidth(window.innerWidth);
@@ -29,7 +29,7 @@ export default function Header() {
 
   return (
     <header className="flex h-14 sm:justify-between">
-      <div className="start w-14 bg-yt-menu-background sm:w-auto">
+      <div className="start w-14 bg-yt-menu-background xs:w-auto">
         {isSearch && !(screenWidth > breakPoint) ? (
           <IconButton onClick={toggleSearch}>
             <ArrowBackIcon />
@@ -38,7 +38,7 @@ export default function Header() {
           <Logo />
         )}
       </div>
-      <div className="center flex w-14 basis-full bg-yt-menu-background sm:basis-1/2 md:max-w-xl">
+      <div className="center flex w-14 basis-full bg-yt-menu-background xs:basis-1/2 sm:max-w-xl">
         {isSearch || screenWidth > breakPoint ? (
           <SearchBar onFocus={showSearch} />
         ) : (
