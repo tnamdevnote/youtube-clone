@@ -29,7 +29,7 @@ export default function Header() {
 
   return (
     <header className="flex h-14 sm:justify-between">
-      <div className="start w-14 bg-yt-menu-background xs:w-auto">
+      <div className="start">
         {isSearch && !(screenWidth > breakPoint) ? (
           <IconButton onClick={toggleSearch}>
             <ArrowBackIcon />
@@ -38,7 +38,7 @@ export default function Header() {
           <Logo />
         )}
       </div>
-      <div className="center flex w-14 basis-full bg-yt-menu-background xs:basis-1/2 sm:max-w-xl">
+      <div className="center flex flex-grow justify-end xs:justify-center">
         {isSearch || screenWidth > breakPoint ? (
           <SearchBar onFocus={showSearch} />
         ) : (
@@ -47,7 +47,7 @@ export default function Header() {
           </IconButton>
         )}
       </div>
-      <div className="end w-20 bg-yt-menu-background">Dropdown</div>
+      <div className="end w-20 ">Dropdown</div>
     </header>
   );
 }
