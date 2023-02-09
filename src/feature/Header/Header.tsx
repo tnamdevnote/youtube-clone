@@ -9,9 +9,9 @@ import IconButton from "../../components/IconButton/IconButton";
 export default function Header() {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const {
-    value: isSearch,
+    value: isInputFocus,
     setTrue: showSearch,
-    toggle: toggleSearch,
+    setFalse: hideSearch,
   } = useBoolean();
   const breakPoint = 600;
 
@@ -29,25 +29,25 @@ export default function Header() {
 
   return (
     <header className="flex h-14 sm:justify-between">
-      <div className="start">
-        {isSearch && !(screenWidth > breakPoint) ? (
-          <IconButton onClick={toggleSearch}>
+      <div className="start flex items-center">
+        {isInputFocus && !(screenWidth > breakPoint) ? (
+          <IconButton onClick={hideSearch}>
             <ArrowBackIcon />
           </IconButton>
         ) : (
           <Logo />
         )}
       </div>
-      <div className="center flex flex-grow justify-end xs:justify-center">
-        {isSearch || screenWidth > breakPoint ? (
+      <div className="center flex flex-grow items-center justify-end xs:justify-center">
+        {isInputFocus || screenWidth > breakPoint ? (
           <SearchBar onFocus={showSearch} />
         ) : (
-          <IconButton className="ml-auto" onClick={toggleSearch}>
+          <IconButton className="ml-auto" onClick={showSearch}>
             <SearchIcon />
           </IconButton>
         )}
       </div>
-      <div className="end w-20 ">Dropdown</div>
+      <div className="end flex w-20 items-center">Dropdown</div>
     </header>
   );
 }
