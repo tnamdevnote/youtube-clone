@@ -18,12 +18,12 @@ const router = createBrowserRouter([
         errorElement: <NotFound />,
       },
       {
-        path: "/search",
+        path: "/search/:id",
         element: <SearchResult />,
         errorElement: <NotFound />,
       },
       {
-        path: "/watch",
+        path: "/watch/:id",
         element: <Watch />,
         errorElement: <NotFound />,
       },

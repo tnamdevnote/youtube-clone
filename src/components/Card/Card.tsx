@@ -30,7 +30,7 @@ function Body({ children }: Props) {
 
 function Title({ children }: Props) {
   return (
-    <h2 className="md:text-md mt-2 mb-1 max-h-11 overflow-hidden text-ellipsis sm:max-h-10 sm:text-sm md:text-base">
+    <h2 className="mt-2 mb-1 max-h-11 overflow-x-hidden text-ellipsis whitespace-nowrap sm:max-h-10 sm:text-sm md:text-sm">
       {children}
     </h2>
   );

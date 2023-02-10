@@ -7,6 +7,7 @@ import {
   FormattedDate,
   useIntl,
 } from "react-intl";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const { isLoading, error, data } = useQuery(
@@ -33,16 +34,18 @@ export default function Home() {
               key={id}
               className="sm:card md:card lg:card xl:card h-auto overflow-hidden"
             >
-              <Card>
-                <Card.Thumbnail thumbnails={snippet.thumbnails} />
-                <Card.Body>
-                  <Card.Title>{snippet.title}</Card.Title>
-                  <Card.Subtitle>{snippet.channelTitle}</Card.Subtitle>
-                  <Card.Stats>
-                    <FormattedDate value={snippet.publishedAt} />
-                  </Card.Stats>
-                </Card.Body>
-              </Card>
+              <Link to={`/watch/${id}`}>
+                <Card>
+                  <Card.Thumbnail thumbnails={snippet.thumbnails} />
+                  <Card.Body>
+                    <Card.Title>{snippet.title}</Card.Title>
+                    <Card.Subtitle>{snippet.channelTitle}</Card.Subtitle>
+                    <Card.Stats>
+                      <FormattedDate value={snippet.publishedAt} />
+                    </Card.Stats>
+                  </Card.Body>
+                </Card>
+              </Link>
             </div>
           ))}
         </section>
