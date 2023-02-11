@@ -1,26 +1,35 @@
 import { Thumbnails } from "./types";
+import { Link } from "react-router-dom";
 
 interface Props {
   children: React.ReactNode;
 }
 
-function Card({ children }: Props) {
-  return <div>{children}</div>;
-}
-
-function Thumbnail({
-  orientation,
-  thumbnails,
+function Card({
+  id,
+  orientation = "vertical",
+  children,
 }: {
-  orientation?: "left" | "top";
-  thumbnails: Thumbnails;
+  id: string;
+  orientation?: "horizontal" | "vertical";
+  children: React.ReactNode;
 }) {
   return (
-    <img
-      className="w-full rounded-2xl"
-      src={thumbnails.medium.url}
-      alt="Thumbnails"
-    />
+    <Link to={`/watch/${id}`}>
+      <div
+        className={`w-full gap-4 ${
+          orientation === "horizontal" ? "flex" : "block"
+        }`}
+      >
+        {children}
+      </div>
+    </Link>
+  );
+}
+
+function Thumbnail({ thumbnails }: { thumbnails: Thumbnails }) {
+  return (
+    <img className="rounded-2xl" src={thumbnails.medium.url} alt="Thumbnails" />
   );
 }
 
@@ -30,7 +39,7 @@ function Body({ children }: Props) {
 
 function Title({ children }: Props) {
   return (
-    <h2 className="mt-2 mb-1 max-h-11 overflow-x-hidden text-ellipsis whitespace-nowrap sm:max-h-10 sm:text-sm md:text-sm">
+    <h2 className="mt-2 mb-1 max-h-11 overflow-x-hidden text-ellipsis whitespace-nowrap text-yt-text-primary sm:max-h-10 sm:text-sm md:text-sm">
       {children}
     </h2>
   );
@@ -41,7 +50,7 @@ function Subtitle({ children }: Props) {
 }
 
 function Text({ children }: Props) {
-  return <p>{children}</p>;
+  return <p className="text-xs text-yt-text-secondary">{children}</p>;
 }
 
 function Stats({ children }: Props) {

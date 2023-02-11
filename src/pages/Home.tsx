@@ -1,12 +1,7 @@
 import Card from "../components/Card/Card";
 import { useQuery } from "@tanstack/react-query";
 import { getTrendingVideos, getVideoById } from "../api/video";
-import {
-  FormattedNumber,
-  FormattedRelativeTime,
-  FormattedDate,
-  useIntl,
-} from "react-intl";
+import { FormattedDate } from "react-intl";
 import { Link } from "react-router-dom";
 
 export default function Home() {
@@ -19,8 +14,7 @@ export default function Home() {
       }),
     { staleTime: 5000 }
   );
-
-  console.log(data, isLoading, error);
+  console.log(data);
   return (
     <main className="flex h-full flex-col place-items-center">
       <section className="bg-yt-text-secondary">ChipBar</section>
@@ -34,18 +28,16 @@ export default function Home() {
               key={id}
               className="sm:card md:card lg:card xl:card h-auto overflow-hidden"
             >
-              <Link to={`/watch/${id}`}>
-                <Card>
-                  <Card.Thumbnail thumbnails={snippet.thumbnails} />
-                  <Card.Body>
-                    <Card.Title>{snippet.title}</Card.Title>
-                    <Card.Subtitle>{snippet.channelTitle}</Card.Subtitle>
-                    <Card.Stats>
-                      <FormattedDate value={snippet.publishedAt} />
-                    </Card.Stats>
-                  </Card.Body>
-                </Card>
-              </Link>
+              <Card id={id}>
+                <Card.Thumbnail thumbnails={snippet.thumbnails} />
+                <Card.Body>
+                  <Card.Title>{snippet.title}</Card.Title>
+                  <Card.Subtitle>{snippet.channelTitle}</Card.Subtitle>
+                  <Card.Stats>
+                    <FormattedDate value={snippet.publishedAt} />
+                  </Card.Stats>
+                </Card.Body>
+              </Card>
             </div>
           ))}
         </section>

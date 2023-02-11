@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import Header from "./Header/Header";
+import Header from "./Header";
 import PageManager from "./PageManager";
 
 export default function Root() {

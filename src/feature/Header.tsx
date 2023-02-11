@@ -2,10 +2,10 @@ import { useCallback, useEffect, useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import Logo from "../../components/Logo/Logo";
-import SearchBar from "../../components/SearchBar/SearchBar";
-import useBoolean from "../../hooks/useBoolean";
-import IconButton from "../../components/IconButton/IconButton";
+import Logo from "../components/Logo/Logo";
+import SearchBar from "../components/SearchBar/SearchBar";
+import useBoolean from "../hooks/useBoolean";
+import IconButton from "../components/IconButton/IconButton";
 
 export default function Header() {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
@@ -29,7 +29,7 @@ export default function Header() {
   }, [handleScreenResize]);
 
   return (
-    <header className="flex h-14 items-center gap-2 px-2 sm:justify-between">
+    <header className="fixed flex h-14 w-full items-center gap-2 bg-yt-menu-background px-2 sm:justify-between">
       <div className="start">
         {isInputFocus && !(screenWidth > breakPoint) ? (
           <IconButton onClick={hideSearch}>
@@ -39,7 +39,7 @@ export default function Header() {
           <Logo />
         )}
       </div>
-      <div className="center flex flex-grow justify-end xs:justify-center">
+      <div className="center flex grow justify-end xs:justify-center">
         {isInputFocus || screenWidth > breakPoint ? (
           <SearchBar onFocus={showSearch} />
         ) : (

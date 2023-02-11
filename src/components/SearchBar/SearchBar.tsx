@@ -2,12 +2,14 @@ import SearchIcon from "@mui/icons-material/Search";
 import CloseIcon from "@mui/icons-material/Close";
 import React, { useState } from "react";
 import useBoolean from "../../hooks/useBoolean";
+import { useNavigate } from "react-router-dom";
 
 interface SearchBarProps {
   onFocus: () => void;
 }
 
 export default function SearchBar({ onFocus }: SearchBarProps) {
+  const navigate = useNavigate();
   const [input, setInput] = useState("");
   const {
     value: iconHidden,
@@ -27,6 +29,7 @@ export default function SearchBar({ onFocus }: SearchBarProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    navigate(`/search/${input}`);
     setInput("");
   };
 
