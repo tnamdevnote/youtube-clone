@@ -6,15 +6,18 @@ import Card from "../components/Card/Card";
 export default function SearchResult() {
   const { query } = useParams();
   const { isLoading, error, data } = useQuery(
-    ["search"],
-    async () =>
-      fetch(`data/searchResults.json`).then((res) => {
-        console.log("fetching");
-        return res.json();
-      }),
-    // async () => await getSearchResult(query ?? ""),
-    { staleTime: 5000 }
+    ["search", query],
+    // async () =>
+    //   fetch(`data/searchResults.json`).then((res) => {
+    //     console.log("fetching");
+    //     return res.json();
+    //   }),
+    async () => await getSearchResult(query ?? ""),
+    {
+      enabled: !!query,
+    }
   );
+  console.log(query);
 
   console.log(data);
   return (

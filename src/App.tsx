@@ -18,8 +18,7 @@ const router = createBrowserRouter([
         errorElement: <NotFound />,
       },
       {
-        // Update path to /search/:query once SearchResult page is ready
-        path: "/search",
+        path: "/search/:query",
         element: <SearchResult />,
         errorElement: <NotFound />,
       },
