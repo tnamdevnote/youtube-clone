@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 @layer utilities {
-  .card {
+  .grid__card {
     aspect-ratio: 1.1 / 1;
   }
-  .card-horizontal {
-    aspect-ratio: 4/1;
+  .grid__card-horizontal {
+    aspect-ratio: 6/1;
   }
 }
 

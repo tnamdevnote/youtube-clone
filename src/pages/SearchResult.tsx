@@ -23,11 +23,14 @@ export default function SearchResult() {
         <p>Loading</p>
       ) : (
         // TODO: add proper type check here
-        <section className=" grid grid-cols-1">
+        <section className="">
           {data.items.map(({ id, snippet }: any) => (
-            <div key={id.videoId} className="card-horizontal mt-4 max-h-48">
+            <div key={id.videoId} className="grid__card-horizontal mt-4">
               <Card id={id.videoId} orientation="horizontal">
-                <Card.Thumbnail thumbnails={snippet.thumbnails} />
+                <Card.Thumbnail
+                  className="shrink-0"
+                  thumbnails={snippet.thumbnails}
+                />
                 <Card.Body>
                   <Card.Title>{snippet.title}</Card.Title>
                   <Card.Subtitle>{snippet.channelTitle}</Card.Subtitle>

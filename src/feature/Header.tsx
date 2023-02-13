@@ -29,7 +29,7 @@ export default function Header() {
   }, [handleScreenResize]);
 
   return (
-    <header className="fixed flex h-14 w-full items-center gap-2 bg-yt-menu-background px-2 sm:justify-between">
+    <header className="fixed flex h-14 w-full flex-none items-center gap-2 bg-yt-menu-background px-2 sm:justify-between">
       <div className="start">
         {isInputFocus && !(screenWidth > breakPoint) ? (
           <IconButton onClick={hideSearch}>
@@ -48,7 +48,10 @@ export default function Header() {
           </IconButton>
         )}
       </div>
-      <IconButton className="end" onClick={() => console.log("hello")}>
+      <IconButton
+        className="end flex-none"
+        onClick={() => console.log("hello")}
+      >
         <MoreHorizIcon />
       </IconButton>
     </header>
