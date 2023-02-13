@@ -12,14 +12,13 @@ export default function SearchResult() {
     //     console.log("fetching");
     //     return res.json();
     //   }),
+    // { staleTime: 5000 }
     async () => await getSearchResult(query ?? ""),
     {
       enabled: !!query,
     }
   );
-  console.log(query);
 
-  console.log(data);
   return (
     <main className="flex place-content-center">
       {isLoading ? (
@@ -28,19 +27,22 @@ export default function SearchResult() {
         // TODO: add proper type check here
         <section className="">
           {data.items.map(({ id, snippet }: any) => (
-            <div key={id.videoId} className="grid__card-horizontal mt-4">
-              <Card id={id.videoId} orientation="horizontal">
-                <Card.Thumbnail
-                  className="shrink-0"
-                  thumbnails={snippet.thumbnails}
-                />
-                <Card.Body>
-                  <Card.Title>{snippet.title}</Card.Title>
-                  <Card.Subtitle>{snippet.channelTitle}</Card.Subtitle>
-                  <Card.Text>{snippet.description}</Card.Text>
-                </Card.Body>
-              </Card>
-            </div>
+            <Card
+              key={id.videoId}
+              id={id.videoId}
+              className="grid__card-horizontal mt-4"
+              orientation="horizontal"
+            >
+              <Card.Thumbnail
+                className="w-2/5 shrink-0"
+                thumbnails={snippet.thumbnails}
+              />
+              <Card.Body>
+                <Card.Title>{snippet.title}</Card.Title>
+                <Card.Subtitle>{snippet.channelTitle}</Card.Subtitle>
+                <Card.Text>{snippet.description}</Card.Text>
+              </Card.Body>
+            </Card>
           ))}
         </section>
       )}

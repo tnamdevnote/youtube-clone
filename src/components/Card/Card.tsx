@@ -39,9 +39,9 @@ function Thumbnail({
 }) {
   return (
     // TODO: img size is not
-    <div className={`card__thumbnail ${className}`}>
+    <div className={`card__thumbnail ${className} overflow-hidden rounded-2xl`}>
       <img
-        className={`w-full rounded-2xl object-cover`}
+        className={`w-full object-cover`}
         src={thumbnails.medium.url}
         alt="Thumbnails"
       />
