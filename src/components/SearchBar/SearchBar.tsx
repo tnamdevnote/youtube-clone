@@ -34,14 +34,14 @@ export default function SearchBar({ onFocus }: SearchBarProps) {
   };
 
   return (
-    <div className="flex w-full grow items-center xs:w-2/4 sm:grow-0">
+    <div className="flex grow items-center">
       <form className="flex w-full items-center" onSubmit={handleSubmit}>
         <div className="flex h-10 w-full items-center rounded-l-3xl border border-yt-searchbox-border-color p-1 pl-4">
           <span className={`${iconHidden ? "hidden" : ""} pr-1`}>
             <SearchIcon />
           </span>
           <input
-            className="text-yt-text-primary focus:outline-none"
+            className="w-full text-yt-text-primary focus:outline-none"
             placeholder="Search"
             value={input}
             onChange={handleChange}

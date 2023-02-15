@@ -39,7 +39,7 @@ export default function Header() {
           <Logo />
         )}
       </div>
-      <div className="center flex grow justify-end xs:justify-center">
+      <div className="center flex grow justify-end xs:justify-center sm:w-full sm:max-w-2xl sm:grow-0">
         {isInputFocus || screenWidth > breakPoint ? (
           <SearchBar onFocus={showSearch} />
         ) : (

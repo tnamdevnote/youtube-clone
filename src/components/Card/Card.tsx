@@ -40,11 +40,7 @@ function Thumbnail({
   return (
     // TODO: img size is not
     <div className={`card__thumbnail ${className} overflow-hidden rounded-2xl`}>
-      <img
-        className={`w-full object-cover`}
-        src={thumbnails.medium.url}
-        alt="Thumbnails"
-      />
+      <img className={`w-full`} src={thumbnails.medium.url} alt="Thumbnails" />
     </div>
   );
 }
@@ -56,7 +52,7 @@ function Body({ className, children }: Props) {
 function Title({ className, children }: Props) {
   return (
     <h2
-      className={`card__title ${className} md:text-bas mb-1 max-h-11 overflow-x-hidden text-ellipsis whitespace-nowrap text-yt-text-primary sm:max-h-10 sm:text-sm`}
+      className={`card__title ${className} mb-1 max-h-11 overflow-x-hidden text-ellipsis whitespace-nowrap text-yt-text-primary`}
     >
       {children}
     </h2>
