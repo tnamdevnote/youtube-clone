@@ -29,18 +29,20 @@ export default function Home() {
           {/* TODO: add proper type check here */}
           {data.items.map(({ id, snippet }: any) => (
             <div key={id} className="grid__card h-auto overflow-hidden">
-              <Card id={id}>
-                <Card.Thumbnail thumbnails={snippet.thumbnails} />
-                <Card.Body>
-                  <Card.Title className="sm:max-h-10 sm:text-sm md:text-base">
-                    {snippet.title}
-                  </Card.Title>
-                  <Card.Subtitle>{snippet.channelTitle}</Card.Subtitle>
-                  <Card.Stats>
-                    <FormattedDate value={snippet.publishedAt} />
-                  </Card.Stats>
-                </Card.Body>
-              </Card>
+              <Link to={`/watch/${id}`}>
+                <Card>
+                  <Card.Thumbnail thumbnails={snippet.thumbnails} />
+                  <Card.Body>
+                    <Card.Title className="sm:max-h-10 sm:text-sm md:text-base">
+                      {snippet.title}
+                    </Card.Title>
+                    <Card.Subtitle>{snippet.channelTitle}</Card.Subtitle>
+                    <Card.Stats>
+                      <FormattedDate value={snippet.publishedAt} />
+                    </Card.Stats>
+                  </Card.Body>
+                </Card>
+              </Link>
             </div>
           ))}
         </section>

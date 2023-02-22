@@ -18,10 +18,10 @@ export async function getTrendingVideos() {
 export async function getVideoById(videoId: string) {
   const { data } = await axios.get(ENDPOINT, {
     params: {
-      part: ["snippet", "contentDetails", "statistics"],
+      part: "snippet, contentDetails, statistics",
       id: videoId,
     },
   });
 
-  return data;
+  return data.items;
 }

@@ -7,26 +7,22 @@ interface Props {
 }
 
 function Card({
-  id,
   className,
   orientation = "vertical",
   children,
 }: {
-  id: string;
   className?: string;
   orientation?: "horizontal" | "vertical";
   children: React.ReactNode;
 }) {
   return (
-    <Link to={`/watch/${id}`}>
-      <div
-        className={`card flex ${className} gap-4 ${
-          orientation === "horizontal" ? "flex-ro" : "flex-col"
-        }`}
-      >
-        {children}
-      </div>
-    </Link>
+    <div
+      className={`card flex rounded-2xl ${className} gap-4 ${
+        orientation === "horizontal" ? "flex-ro" : "flex-col"
+      }`}
+    >
+      {children}
+    </div>
   );
 }
 

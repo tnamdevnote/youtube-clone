@@ -23,7 +23,7 @@ const router = createBrowserRouter([
         errorElement: <NotFound />,
       },
       {
-        path: "/watch/:id",
+        path: "/watch/:videoId",
         element: <Watch />,
         errorElement: <NotFound />,
       },
