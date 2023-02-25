@@ -18,6 +18,7 @@ export async function getRelatedVideo(videoId: string) {
   const { data } = await axios.get(ENDPOINT, {
     params: {
       part: "snippet",
+      maxResults: 25,
       relatedToVideoId: videoId,
       type: "video",
     },

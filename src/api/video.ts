@@ -23,5 +23,5 @@ export async function getVideoById(videoId: string) {
     },
   });
 
-  return data.items;
+  return data.items[0];
 }

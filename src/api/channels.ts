@@ -5,10 +5,10 @@ const ENDPOINT = "/channels";
 export async function getChannelInfo(channelId: string) {
   const { data } = await axios.get(ENDPOINT, {
     params: {
-      part: ["snippet", "contentDetails", "statistics"],
+      part: "snippet, contentDetails, statistics",
       id: channelId,
     },
   });
 
-  return data;
+  return data.items[0];
 }
