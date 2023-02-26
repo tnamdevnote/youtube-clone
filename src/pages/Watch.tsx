@@ -1,10 +1,12 @@
 import { useQueries, useQuery } from "@tanstack/react-query";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getVideoById } from "../api/video";
 import { getChannelInfo } from "../api/channels";
 import Card from "../components/Card/Card";
 import { getRelatedVideo } from "../api/search";
 import { FormattedDate } from "react-intl";
+import numeral from "numeral";
+import TimeFormatter from "../components/TimeFormatter/TimeFormatter";
 
 export default function Watch() {
   const { videoId } = useParams();
@@ -74,7 +76,9 @@ export default function Watch() {
                     <Card.Body>
                       <Card.Title>{channelInfo?.snippet.title}</Card.Title>
                       <Card.Stats>
-                        {`${channelInfo?.statistics.subscriberCount} subscribers`}
+                        {`${numeral(
+                          channelInfo?.statistics.subscriberCount
+                        ).format("0a")} subscribers`}
                       </Card.Stats>
                     </Card.Body>
                   </Card>
@@ -82,7 +86,9 @@ export default function Watch() {
                 <section className="h-28 cursor-pointer rounded-2xl bg-yt-badge-chip-background hover:bg-yt-button-chip-background-hover">
                   <div className="p-3">
                     <p className="text-sm font-semibold">
-                      {`${watch.statistics.viewCount} views`}
+                      {`${numeral(watch.statistics.viewCount).format(
+                        "0,0"
+                      )} views`}
                     </p>
                     <p className="truncate text-sm font-medium">
                       {watch.snippet.description}
@@ -93,20 +99,24 @@ export default function Watch() {
             </div>
           </section>
           <aside className="watch__related flex-initial lg:w-96">
-            {relatedVideos?.map(({ id, snippet }: any) => (
-              <div className="my-2 h-24">
-                <Card key={id.videoId} orientation="horizontal">
-                  <Card.Thumbnail thumbnails={snippet.thumbnails} />
-                  <Card.Body>
-                    <Card.Title>{snippet.title}</Card.Title>
-                    <Card.Subtitle>{snippet.channelTitle}</Card.Subtitle>
-                    <Card.Stats>
-                      <FormattedDate value={snippet.publishedAt} />
-                    </Card.Stats>
-                  </Card.Body>
-                </Card>
-              </div>
-            ))}
+            <ul>
+              {relatedVideos?.map(({ id, snippet }: any) => (
+                <li className="mb-2 h-24">
+                  <Link to={`/watch/${id.videoId}`}>
+                    <Card key={id.videoId} orientation="horizontal">
+                      <Card.Thumbnail thumbnails={snippet.thumbnails} />
+                      <Card.Body>
+                        <Card.Title>{snippet.title}</Card.Title>
+                        <Card.Subtitle>{snippet.channelTitle}</Card.Subtitle>
+                        <Card.Stats>
+                          <TimeFormatter isoDate={snippet.publishedAt} />
+                        </Card.Stats>
+                      </Card.Body>
+                    </Card>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </aside>
         </div>
       )}
