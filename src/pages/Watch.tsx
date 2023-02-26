@@ -4,6 +4,7 @@ import { getVideoById } from "../api/video";
 import { getChannelInfo } from "../api/channels";
 import Card from "../components/Card/Card";
 import { getRelatedVideo } from "../api/search";
+import { FormattedDate } from "react-intl";
 
 export default function Watch() {
   const { videoId } = useParams();
@@ -47,68 +48,67 @@ export default function Watch() {
       {isLoading ? (
         <p>Loading</p>
       ) : (
-        <section className="watch__container w-full p-6 lg:w-8/12 xl:max-w-5xl">
-          <article className="watch__player min-h-64 aspect-video w-full ">
-            <iframe
-              width="100%"
-              height="100%"
-              src={`https://www.youtube.com/embed/${videoId}`}
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            ></iframe>
-          </article>
-          <div className="watch__below mt-2">
-            <div className="watch__metadata">
-              <h2 className="watch__title text-xl font-semibold">
-                {watch.snippet.title}
-              </h2>
-              <div className="watch__channelinfo my-2">
-                <Card orientation="horizontal" className="h-11">
-                  <Card.Thumbnail
-                    thumbnails={channelInfo?.snippet.thumbnails}
-                    className="h-10 w-10 rounded-full"
-                  />
+        <div className="flex w-full flex-col p-6 lg:max-w-screen-xl lg:flex-row lg:justify-between">
+          <section className="watch__container lg:mr-6 lg:min-w-0">
+            <article className="watch__player min-h-64 aspect-video w-full">
+              <iframe
+                width="100%"
+                height="100%"
+                src={`https://www.youtube.com/embed/${videoId}`}
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
+            </article>
+            <div className="watch__below mt-2">
+              <div className="watch__metadata">
+                <h2 className="watch__title text-xl font-semibold">
+                  {watch.snippet.title}
+                </h2>
+                <section className="watch__channelInfo my-2">
+                  <Card orientation="horizontal">
+                    <img
+                      src={channelInfo?.snippet.thumbnails.medium.url}
+                      className="thumbnail mr-4 h-10 w-10 rounded-full"
+                    />
+                    <Card.Body>
+                      <Card.Title>{channelInfo?.snippet.title}</Card.Title>
+                      <Card.Stats>
+                        {`${channelInfo?.statistics.subscriberCount} subscribers`}
+                      </Card.Stats>
+                    </Card.Body>
+                  </Card>
+                </section>
+                <section className="h-28 cursor-pointer rounded-2xl bg-yt-badge-chip-background hover:bg-yt-button-chip-background-hover">
+                  <div className="p-3">
+                    <p className="text-sm font-semibold">
+                      {`${watch.statistics.viewCount} views`}
+                    </p>
+                    <p className="truncate text-sm font-medium">
+                      {watch.snippet.description}
+                    </p>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </section>
+          <aside className="watch__related flex-initial lg:w-96">
+            {relatedVideos?.map(({ id, snippet }: any) => (
+              <div className="my-2 h-24">
+                <Card key={id.videoId} orientation="horizontal">
+                  <Card.Thumbnail thumbnails={snippet.thumbnails} />
                   <Card.Body>
-                    <Card.Title className="mb-0 font-bold">
-                      {channelInfo?.snippet.title}
-                    </Card.Title>
+                    <Card.Title>{snippet.title}</Card.Title>
+                    <Card.Subtitle>{snippet.channelTitle}</Card.Subtitle>
                     <Card.Stats>
-                      {`${channelInfo?.statistics.subscriberCount} subscribers`}
+                      <FormattedDate value={snippet.publishedAt} />
                     </Card.Stats>
                   </Card.Body>
                 </Card>
               </div>
-              <Card className="h-28 cursor-pointer bg-yt-badge-chip-background hover:bg-yt-button-chip-background-hover">
-                <Card.Body className="p-3">
-                  <Card.Text className="text-sm font-semibold">
-                    {`${watch.statistics.viewCount} views`}
-                  </Card.Text>
-                  <Card.Text className="truncate text-sm font-medium">
-                    {watch.snippet.description}
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            </div>
-            <aside className="watch__related">
-              {relatedVideos?.map(({ id, snippet }: any) => (
-                <Card key={id.videoId} orientation="horizontal">
-                  <Card.Thumbnail
-                    thumbnails={snippet.thumbnails}
-                    className=""
-                  />
-                  <Card.Body>
-                    <Card.Title>{snippet.title}</Card.Title>
-                    <Card.Subtitle>{snippet.channelTitle}</Card.Subtitle>
-                    <Card.Text className="truncate text-sm font-medium">
-                      {snippet.description}
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-              ))}
-            </aside>
-          </div>
-        </section>
+            ))}
+          </aside>
+        </div>
       )}
     </main>
   );

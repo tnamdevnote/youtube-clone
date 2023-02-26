@@ -27,31 +27,26 @@ export default function SearchResult() {
         <p>Loading</p>
       ) : (
         // TODO: add proper type check here
-        <section className="px-2">
-          {data.items.map(({ id, snippet }: any) => (
-            <Link to={`/watch/${id.videoId}`}>
-              <Card
-                key={id.videoId}
-                className="mt-4 max-h-60 max-w-5xl"
-                orientation="horizontal"
-              >
-                <Card.Thumbnail
-                  className="w-2/5 shrink-0"
-                  thumbnails={snippet.thumbnails}
-                />
-                <Card.Body className="w-2/5 sm:w-3/5">
-                  <Card.Title className="text-xl">{snippet.title}</Card.Title>
-                  <Card.Stats>
-                    <FormattedDate value={snippet.publishedAt} />
-                  </Card.Stats>
-                  <Card.Subtitle className="mt-4">
-                    {snippet.channelTitle}
-                  </Card.Subtitle>
-                  <Card.Text className="mt-4">{snippet.description}</Card.Text>
-                </Card.Body>
-              </Card>
-            </Link>
-          ))}
+        <section className="max-w-4xl px-6">
+          <ul className="w-full">
+            {data.items.map(({ id, snippet }: any) => (
+              <li className="my-4">
+                <Link to={`/watch/${id.videoId}`}>
+                  <Card key={id.videoId} orientation="horizontal">
+                    <Card.Thumbnail thumbnails={snippet.thumbnails} />
+                    <Card.Body>
+                      <Card.Title>{snippet.title}</Card.Title>
+                      <Card.Stats>
+                        <FormattedDate value={snippet.publishedAt} />
+                      </Card.Stats>
+                      <Card.Subtitle>{snippet.channelTitle}</Card.Subtitle>
+                      <Card.Text>{snippet.description}</Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </section>
       )}
     </main>

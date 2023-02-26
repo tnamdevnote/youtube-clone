@@ -1,24 +1,52 @@
 import { Thumbnails } from "./types";
-import { Link } from "react-router-dom";
+import { CardContext, useCardContext } from "./CardContext";
+import { useMemo } from "react";
 
 interface Props {
-  className?: string;
   children: React.ReactNode;
 }
 
 function Card({
-  className,
   orientation = "vertical",
   children,
 }: {
-  className?: string;
   orientation?: "horizontal" | "vertical";
   children: React.ReactNode;
 }) {
+  const providerValue = useMemo(() => ({ orientation }), [orientation]);
+  return (
+    <CardContext.Provider value={providerValue}>
+      <div
+        className={`card flex h-full rounded-2xl ${
+          orientation === "horizontal" ? "max-h-48 flex-row" : "flex-col gap-4"
+        }`}
+      >
+        {children}
+      </div>
+    </CardContext.Provider>
+  );
+}
+
+function Thumbnail({ thumbnails }: { thumbnails: Thumbnails }) {
+  const { orientation } = useCardContext();
+  return (
+    // TODO: img size is not
+    <div
+      className={`card__thumbnail aspect-video ${
+        orientation === "horizontal" ? "mr-4 max-w-sm" : "w-full"
+      } overflow-hidden rounded-2xl`}
+    >
+      <img className={`w-full`} src={thumbnails.medium.url} alt="Thumbnails" />
+    </div>
+  );
+}
+
+function Body({ children }: Props) {
+  const { orientation } = useCardContext();
   return (
     <div
-      className={`card flex rounded-2xl ${className} gap-4 ${
-        orientation === "horizontal" ? "flex-ro" : "flex-col"
+      className={`card__body ${
+        orientation === "horizontal" ? "w-2/5 sm:grow" : "w-auto"
       }`}
     >
       {children}
@@ -26,58 +54,37 @@ function Card({
   );
 }
 
-function Thumbnail({
-  className,
-  thumbnails,
-}: {
-  className?: string;
-  thumbnails: Thumbnails;
-}) {
-  return (
-    // TODO: img size is not
-    <div className={`card__thumbnail ${className} overflow-hidden rounded-2xl`}>
-      <img className={`w-full`} src={thumbnails.medium.url} alt="Thumbnails" />
-    </div>
-  );
-}
-
-function Body({ className, children }: Props) {
-  return <div className={`${className}`}>{children}</div>;
-}
-
-function Title({ className, children }: Props) {
+function Title({ children }: Props) {
   return (
     <h2
-      className={`card__title ${className} mb-1 max-h-11 overflow-x-hidden text-ellipsis whitespace-nowrap text-yt-text-primary`}
+      className={`card__title mb-1 max-h-11 overflow-x-hidden text-ellipsis whitespace-nowrap text-yt-text-primary`}
     >
       {children}
     </h2>
   );
 }
 
-function Subtitle({ className, children }: Props) {
+function Subtitle({ children }: Props) {
   return (
-    <h3
-      className={`card__subtitle ${className} text-xs text-yt-text-secondary`}
-    >
+    <h3 className={`card__subtitle text-xs text-yt-text-secondary`}>
       {children}
     </h3>
   );
 }
 
-function Text({ className, children }: Props) {
+function Text({ children }: Props) {
   return (
-    <p className={`card__text ${className} text-xs text-yt-text-secondary`}>
+    <p
+      className={`card__text overflow-hidden overflow-ellipsis whitespace-nowrap text-xs text-yt-text-secondary`}
+    >
       {children}
     </p>
   );
 }
 
-function Stats({ className, children }: Props) {
+function Stats({ children }: Props) {
   return (
-    <p className={`card__stats ${className} text-xs text-yt-text-secondary`}>
-      {children}
-    </p>
+    <p className={`card__stats text-xs text-yt-text-secondary`}>{children}</p>
   );
 }
 

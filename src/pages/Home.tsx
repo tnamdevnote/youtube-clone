@@ -33,9 +33,7 @@ export default function Home() {
                 <Card>
                   <Card.Thumbnail thumbnails={snippet.thumbnails} />
                   <Card.Body>
-                    <Card.Title className="sm:max-h-10 sm:text-sm md:text-base">
-                      {snippet.title}
-                    </Card.Title>
+                    <Card.Title>{snippet.title}</Card.Title>
                     <Card.Subtitle>{snippet.channelTitle}</Card.Subtitle>
                     <Card.Stats>
                       <FormattedDate value={snippet.publishedAt} />
