@@ -11,12 +11,6 @@ export default function Home() {
     {
       staleTime: 10000,
     }
-    // async () =>
-    //   fetch(`data/mostPopular.json`).then((res) => {
-    //     console.log("fetching");
-    //     return res.json();
-    //   }),
-    // { staleTime: 5000 }
   );
 
   return (

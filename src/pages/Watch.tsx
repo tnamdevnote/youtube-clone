@@ -4,7 +4,6 @@ import { getVideoById } from "../api/video";
 import { getChannelInfo } from "../api/channels";
 import Card from "../components/Card/Card";
 import { getRelatedVideo } from "../api/search";
-import { FormattedDate } from "react-intl";
 import numeral from "numeral";
 import TimeFormatter from "../components/TimeFormatter/TimeFormatter";
 
@@ -51,7 +50,7 @@ export default function Watch() {
         <p>Loading</p>
       ) : (
         <div className="flex w-full flex-col p-6 lg:max-w-screen-xl lg:flex-row lg:justify-between">
-          <section className="watch__container lg:mr-6 lg:min-w-0">
+          <section className="watch__container w-full lg:mr-6 lg:min-w-0">
             <article className="watch__player min-h-64 aspect-video w-full">
               <iframe
                 width="100%"
@@ -83,14 +82,14 @@ export default function Watch() {
                     </Card.Body>
                   </Card>
                 </section>
-                <section className="h-28 cursor-pointer rounded-2xl bg-yt-badge-chip-background hover:bg-yt-button-chip-background-hover">
+                <section className="h-28 cursor-pointer rounded-xl bg-yt-badge-chip-background hover:bg-yt-button-chip-background-hover">
                   <div className="p-3">
                     <p className="text-sm font-semibold">
                       {`${numeral(watch.statistics.viewCount).format(
                         "0,0"
                       )} views`}
                     </p>
-                    <p className="truncate text-sm font-medium">
+                    <p className="overflow-hidden text-ellipsis whitespace-pre text-sm font-medium line-clamp-3">
                       {watch.snippet.description}
                     </p>
                   </div>
@@ -98,7 +97,7 @@ export default function Watch() {
               </div>
             </div>
           </section>
-          <aside className="watch__related flex-initial lg:w-96">
+          <aside className="watch__related flex-initial lg:w-4/12">
             <ul>
               {relatedVideos?.map(({ id, snippet }: any) => (
                 <li className="mb-2 h-24">

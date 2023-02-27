@@ -17,7 +17,7 @@ function Card({
   return (
     <CardContext.Provider value={providerValue}>
       <div
-        className={`card flex h-full rounded-2xl ${
+        className={`card flex h-full ${
           orientation === "horizontal" ? "max-h-48 flex-row" : "flex-col gap-4"
         }`}
       >
@@ -33,10 +33,14 @@ function Thumbnail({ thumbnails }: { thumbnails: Thumbnails }) {
     // TODO: img size is not
     <div
       className={`card__thumbnail aspect-video ${
-        orientation === "horizontal" ? "mr-4 max-w-sm" : "w-full"
-      } overflow-hidden rounded-2xl`}
+        orientation === "horizontal" ? "mr-4 h-full max-w-sm" : "w-full"
+      }`}
     >
-      <img className={`w-full`} src={thumbnails.medium.url} alt="Thumbnails" />
+      <img
+        className={`w-full rounded-xl`}
+        src={thumbnails.medium.url}
+        alt="Thumbnails"
+      />
     </div>
   );
 }
@@ -46,7 +50,7 @@ function Body({ children }: Props) {
   return (
     <div
       className={`card__body ${
-        orientation === "horizontal" ? "w-2/5 sm:grow" : "w-auto"
+        orientation === "horizontal" ? "w-3/5 sm:grow" : "w-auto"
       }`}
     >
       {children}
@@ -57,7 +61,7 @@ function Body({ children }: Props) {
 function Title({ children }: Props) {
   return (
     <h2
-      className={`card__title mb-1 max-h-11 overflow-x-hidden text-ellipsis whitespace-nowrap text-yt-text-primary`}
+      className={`card__title mb-1 max-h-11 overflow-x-hidden text-ellipsis text-yt-text-primary line-clamp-2`}
     >
       {children}
     </h2>
@@ -75,7 +79,7 @@ function Subtitle({ children }: Props) {
 function Text({ children }: Props) {
   return (
     <p
-      className={`card__text overflow-hidden overflow-ellipsis whitespace-nowrap text-xs text-yt-text-secondary`}
+      className={`card__text overflow-hidden overflow-ellipsis text-xs text-yt-text-secondary line-clamp-2`}
     >
       {children}
     </p>

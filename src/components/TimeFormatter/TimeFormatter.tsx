@@ -1,5 +1,5 @@
-import React from "react";
 import { FormattedRelativeTime } from "react-intl";
+import { RelativeTimeFormatSingularUnit } from "@formatjs/ecma402-abstract";
 
 const TimeFormatter = ({ isoDate }: { isoDate: Date }) => {
   const date = new Date(isoDate);
@@ -10,8 +10,10 @@ const TimeFormatter = ({ isoDate }: { isoDate: Date }) => {
   const minutes = Math.round(seconds / 60);
   const hours = Math.round(minutes / 60);
   const days = Math.round(hours / 24);
-  let unit;
+
+  let unit: RelativeTimeFormatSingularUnit;
   let value;
+
   if (seconds < 60) {
     unit = "second";
     value = -seconds;
