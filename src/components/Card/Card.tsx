@@ -30,18 +30,11 @@ function Card({
 function Thumbnail({ thumbnails }: { thumbnails: Thumbnails }) {
   const { orientation } = useCardContext();
   return (
-    // TODO: img size is not
-    <div
-      className={`card__thumbnail aspect-video ${
-        orientation === "horizontal" ? "mr-4 h-full max-w-sm" : "w-full"
-      }`}
-    >
-      <img
-        className={`w-full rounded-xl`}
-        src={thumbnails.medium.url}
-        alt="Thumbnails"
-      />
-    </div>
+      <div
+          className={`card__thumbnail aspect-video ${orientation === "horizontal" ? "mr-4 h-full max-w-sm" : "w-full"}`}
+      >
+          <img className={`w-full rounded-xl`} src={thumbnails.medium.url} alt="Thumbnails" />
+      </div>
   );
 }
 
