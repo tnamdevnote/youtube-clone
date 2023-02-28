@@ -1,11 +1,11 @@
 import { useQueries, useQuery } from "@tanstack/react-query";
 import { Link, useParams } from "react-router-dom";
-import { getVideoById } from "../api/video";
-import { getChannelInfo } from "../api/channels";
-import Card from "../components/Card/Card";
-import { getRelatedVideo } from "../api/search";
+import { getVideoById } from "../../api/video";
+import { getChannelInfo } from "../../api/channels";
+import Card from "../../components/Card/Card";
+import { getRelatedVideo } from "../../api/search";
 import numeral from "numeral";
-import TimeFormatter from "../components/TimeFormatter/TimeFormatter";
+import TimeFormatter from "../../components/TimeFormatter/TimeFormatter";
 
 export default function Watch() {
   const { videoId } = useParams();
@@ -70,7 +70,7 @@ export default function Watch() {
                   <Card orientation="horizontal">
                     <img
                       src={channelInfo?.snippet.thumbnails.medium.url}
-                      className="thumbnail mr-4 h-10 w-10 rounded-full"
+                      className="thumbnail mr-3 h-10 w-10 rounded-full"
                     />
                     <Card.Body>
                       <Card.Title>{channelInfo?.snippet.title}</Card.Title>
@@ -82,7 +82,7 @@ export default function Watch() {
                     </Card.Body>
                   </Card>
                 </section>
-                <section className="h-28 cursor-pointer rounded-xl bg-yt-badge-chip-background hover:bg-yt-button-chip-background-hover">
+                <section className="my-4 h-28 cursor-pointer rounded-xl bg-yt-badge-chip-background hover:bg-yt-button-chip-background-hover">
                   <div className="p-3">
                     <p className="text-sm font-semibold">
                       {`${numeral(watch.statistics.viewCount).format(

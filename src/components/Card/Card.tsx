@@ -61,7 +61,7 @@ function Body({ children }: Props) {
 function Title({ children }: Props) {
   return (
     <h2
-      className={`card__title mb-1 max-h-11 overflow-x-hidden text-ellipsis text-yt-text-primary line-clamp-2`}
+      className={`card__title max-h-11 overflow-x-hidden text-ellipsis leading-tight text-yt-text-primary line-clamp-2`}
     >
       {children}
     </h2>

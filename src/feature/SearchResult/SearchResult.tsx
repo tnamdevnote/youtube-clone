@@ -1,19 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import { FormattedDate } from "react-intl";
 import { Link, useParams } from "react-router-dom";
-import { getSearchResult } from "../api/search";
-import Card from "../components/Card/Card";
+import { getSearchResult } from "../../api/search";
+import Card from "../../components/Card/Card";
 
 export default function SearchResult() {
   const { query } = useParams();
   const { isLoading, error, data } = useQuery(
     ["search", query],
-    // async () =>
-    //   fetch(`data/searchResults.json`).then((res) => {
-    //     console.log("fetching");
-    //     return res.json();
-    //   }),
-    // { staleTime: 5000 }
     async () => await getSearchResult(query ?? ""),
     {
       enabled: !!query,

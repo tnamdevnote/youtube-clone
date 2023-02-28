@@ -1,6 +1,6 @@
-import Card from "../components/Card/Card";
+import Card from "../../components/Card/Card";
 import { useQuery } from "@tanstack/react-query";
-import { getTrendingVideos } from "../api/video";
+import { getTrendingVideos } from "../../api/video";
 import { FormattedDate } from "react-intl";
 import { Link } from "react-router-dom";
 
