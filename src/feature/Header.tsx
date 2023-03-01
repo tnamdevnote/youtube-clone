@@ -29,31 +29,28 @@ export default function Header() {
   }, [handleScreenResize]);
 
   return (
-    <header className="fixed flex h-14 w-full flex-none items-center gap-2 bg-yt-menu-background px-2 sm:justify-between">
-      <div className="start">
-        {isInputFocus && !(screenWidth > breakPoint) ? (
-          <IconButton onClick={hideSearch}>
-            <ArrowBackIcon />
+      <header className="fixed z-10 flex h-14 w-full flex-none items-center gap-2 bg-yt-menu-background px-2 sm:justify-between">
+          <div className="start">
+              {isInputFocus && !(screenWidth > breakPoint) ? (
+                  <IconButton onClick={hideSearch}>
+                      <ArrowBackIcon />
+                  </IconButton>
+              ) : (
+                  <Logo />
+              )}
+          </div>
+          <div className="center flex grow justify-end xs:justify-center sm:w-full sm:max-w-2xl sm:grow-0">
+              {isInputFocus || screenWidth > breakPoint ? (
+                  <SearchBar onFocus={showSearch} />
+              ) : (
+                  <IconButton className="ml-auto" onClick={showSearch}>
+                      <SearchIcon />
+                  </IconButton>
+              )}
+          </div>
+          <IconButton className="end flex-none" onClick={() => console.log("hello")}>
+              <MoreHorizIcon />
           </IconButton>
-        ) : (
-          <Logo />
-        )}
-      </div>
-      <div className="center flex grow justify-end xs:justify-center sm:w-full sm:max-w-2xl sm:grow-0">
-        {isInputFocus || screenWidth > breakPoint ? (
-          <SearchBar onFocus={showSearch} />
-        ) : (
-          <IconButton className="ml-auto" onClick={showSearch}>
-            <SearchIcon />
-          </IconButton>
-        )}
-      </div>
-      <IconButton
-        className="end flex-none"
-        onClick={() => console.log("hello")}
-      >
-        <MoreHorizIcon />
-      </IconButton>
-    </header>
+      </header>
   );
 }
