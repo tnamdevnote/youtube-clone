@@ -11,7 +11,7 @@ export async function getSearchResult(queryString: string) {
     },
   });
 
-  return data;
+  return data.items;
 }
 
 export async function getRelatedVideo(videoId: string) {

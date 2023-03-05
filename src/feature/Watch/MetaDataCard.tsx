@@ -29,7 +29,9 @@ function DescriptionCard({ viewCount, description }: MetaDataCardProps) {
             <p className="text-sm font-semibold">{`${numeral(viewCount).format("0,0")} views`}</p>
             <p
                 className={`${
-                    isMore ? "whitespace-pre-wrap" : "w-72 overflow-hidden text-ellipsis whitespace-normal line-clamp-3"
+                    isMore
+                        ? "whitespace-pre-wrap"
+                        : "w-72 overflow-hidden text-ellipsis whitespace-pre-line line-clamp-3"
                 } relative text-sm font-medium `}
             >
                 {description}

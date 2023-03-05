@@ -30,7 +30,6 @@ export default function SearchBar({ onFocus }: SearchBarProps) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     navigate(`/search/${input}`);
-    setInput("");
   };
 
   return (

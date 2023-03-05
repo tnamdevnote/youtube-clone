@@ -1,13 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
-import { FormattedDate } from "react-intl";
 import { Link, useParams } from "react-router-dom";
 import { getSearchResult } from "../../api/search";
-import Card from "../../components/Card/Card";
 import ResultCard from "./ResultCard";
 
 export default function SearchResult() {
     const { query } = useParams();
-    const { isLoading, error, data } = useQuery(["search", query], async () => await getSearchResult(query ?? ""), {
+    const {
+        isLoading,
+        error,
+        data: searchResults,
+    } = useQuery(["search", query], async () => await getSearchResult(query ?? ""), {
         enabled: !!query,
         refetchOnWindowFocus: false,
     });
@@ -20,7 +22,7 @@ export default function SearchResult() {
                 // TODO: add proper type check here
                 <section className="max-w-4xl px-6">
                     <ul className="w-full">
-                        {data.items?.map(({ id, snippet }: any) => (
+                        {searchResults?.map(({ id, snippet }: any) => (
                             <li key={id.videoId} className="my-4">
                                 <Link to={`/watch/${id.videoId}`}>
                                     <ResultCard

@@ -8,11 +8,11 @@ import "./index.css";
 const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <IntlProvider locale={navigator.language}>
-        <App />
-      </IntlProvider>
-    </QueryClientProvider>
-  </React.StrictMode>
+    <React.StrictMode>
+        <QueryClientProvider client={queryClient}>
+            <IntlProvider locale={navigator.language}>
+                <App />
+            </IntlProvider>
+        </QueryClientProvider>
+    </React.StrictMode>
 );
