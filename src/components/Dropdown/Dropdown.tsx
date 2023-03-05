@@ -3,9 +3,11 @@ import useBoolean from "../../hooks/useBoolean";
 import { MoreHoriz } from "@mui/icons-material";
 import { createPortal } from "react-dom";
 import { useEffect, useRef, useState } from "react";
+import { useDarkModeContext } from "../../context/DarkModeContext";
 
 function Dropdown() {
     const { value: isOpen, setTrue: open, setFalse: close } = useBoolean();
+    const { state, dispatch } = useDarkModeContext();
     const ref = useRef<HTMLUListElement | null>(null);
 
     useEffect(() => {
@@ -20,6 +22,7 @@ function Dropdown() {
         return () => document.removeEventListener("click", (e) => handleClickOutside(e));
     }, []);
 
+    console.log(state);
     return (
         <>
             <IconButton onClick={open}>
@@ -32,19 +35,19 @@ function Dropdown() {
                 >
                     <li
                         className="cursor-pointer px-6 py-2 text-sm hover:bg-yt-button-chip-background-hover dark:text-yt-text-primary-dark dark:hover:bg-yt-button-chip-background-hover-dark"
-                        onClick={close}
+                        onClick={() => dispatch({ type: "USE_DEVICE_SETTINGS" })}
                     >
                         Use device theme
                     </li>
                     <li
                         className="cursor-pointer px-6 py-2 text-sm hover:bg-yt-button-chip-background-hover dark:text-yt-text-primary-dark dark:hover:bg-yt-button-chip-background-hover-dark"
-                        onClick={close}
+                        onClick={() => dispatch({ type: "DARK_THEME" })}
                     >
                         Dark theme
                     </li>
                     <li
                         className="cursor-pointer px-6 py-2 text-sm hover:bg-yt-button-chip-background-hover dark:text-yt-text-primary-dark dark:hover:bg-yt-button-chip-background-hover-dark"
-                        onClick={close}
+                        onClick={() => dispatch({ type: "LIGHT_THEME" })}
                     >
                         Light theme
                     </li>
