@@ -13,7 +13,7 @@ export default function ChannelCard({ thumbnailURL, title, stats }: ChannelCardP
             <img src={thumbnailURL} className="thumbnail mr-3 h-10 w-10 rounded-full" />
             <Card.Body>
                 <Card.Title>{title}</Card.Title>
-                <Card.Stats>{`${numeral(stats).format("0a")} subscribers`}</Card.Stats>
+                <Card.Stats>{`${numeral(stats).format("0.0a")} subscribers`}</Card.Stats>
             </Card.Body>
         </Card>
     );

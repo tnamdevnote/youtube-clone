@@ -29,7 +29,7 @@ function DescriptionCard({ viewCount, description }: MetaDataCardProps) {
             onClick={showMore}
         >
             <p className="text-sm font-semibold dark:text-yt-text-primary-dark">{`${numeral(viewCount).format(
-                "0,0"
+                "0.0a"
             )} views`}</p>
             <p
                 className={`${
