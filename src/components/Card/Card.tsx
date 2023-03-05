@@ -52,37 +52,33 @@ function Body({ children }: Props) {
 }
 
 function Title({ children }: Props) {
-  return (
-    <h2
-      className={`card__title max-h-11 overflow-x-hidden text-ellipsis leading-tight text-yt-text-primary line-clamp-2`}
-    >
-      {children}
-    </h2>
-  );
+    return (
+        <h2
+            className={`card__title max-h-11 overflow-x-hidden text-ellipsis leading-tight text-yt-text-primary line-clamp-2 dark:text-yt-text-primary-dark`}
+        >
+            {children}
+        </h2>
+    );
 }
 
 function Subtitle({ children }: Props) {
-  return (
-    <h3 className={`card__subtitle text-xs text-yt-text-secondary`}>
-      {children}
-    </h3>
-  );
+    return (
+        <h3 className={`card__subtitle text-xs text-yt-text-secondary dark:text-yt-text-secondary-dark`}>{children}</h3>
+    );
 }
 
 function Text({ children }: Props) {
-  return (
-    <p
-      className={`card__text overflow-hidden overflow-ellipsis text-xs text-yt-text-secondary line-clamp-2`}
-    >
-      {children}
-    </p>
-  );
+    return (
+        <p
+            className={`card__text overflow-hidden overflow-ellipsis text-xs text-yt-text-secondary line-clamp-2 dark:text-yt-text-secondary-dark`}
+        >
+            {children}
+        </p>
+    );
 }
 
 function Stats({ children }: Props) {
-  return (
-    <p className={`card__stats text-xs text-yt-text-secondary`}>{children}</p>
-  );
+    return <p className={`card__stats text-xs text-yt-text-secondary dark:text-yt-text-secondary-dark`}>{children}</p>;
 }
 
 Card.Thumbnail = Thumbnail;

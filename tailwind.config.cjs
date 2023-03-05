@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+    darkMode: "media",
     content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
     theme: {
         screens: {
@@ -30,17 +31,17 @@ module.exports = {
                 "yt-searchbox-button-color": "#f8f8f8",
 
                 //dark
-                // "yt-base-background": "#0f0f0f",
-                // "yt-menu-background": "#282828",
-                // "yt-text-primary": "#f1f1f1",
-                // "yt-text-primary-inverse": "#0f0f0f",
-                // "yt-text-secondary": "#aaa",
-                // "yt-badge-chip-background": "#ffffff1a",
-                // "yt-button-chip-background-hover": "#ffffff33",
-                // "yt-searchbox-border-color": "#88888866",
-                // "yt-searchbox-background": "#121212",
-                // "yt-searchbox-text-color": "#ffffffe0",
-                // "yt-searchbox-button-color": "##d3d3d3",
+                "yt-base-background-dark": "#0f0f0f",
+                "yt-menu-background-dark": "#282828",
+                "yt-text-primary-dark": "#f1f1f1",
+                "yt-text-primary-inverse-dark": "#0f0f0f",
+                "yt-text-secondary-dark": "#aaa",
+                "yt-badge-chip-background-dark": "#ffffff1a",
+                "yt-button-chip-background-hover-dark": "#ffffff33",
+                "yt-searchbox-border-color-dark": "#88888866",
+                "yt-searchbox-background-dark": "#121212",
+                "yt-searchbox-text-color-dark": "#ffffffe0",
+                "yt-searchbox-button-color-dark": "#ffffff14",
             },
         },
     },

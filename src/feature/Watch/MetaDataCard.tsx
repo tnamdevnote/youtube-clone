@@ -22,23 +22,27 @@ function DescriptionCard({ viewCount, description }: MetaDataCardProps) {
     return (
         <div
             className={`${
-                isMore ? "h-fit cursor-default" : "h-28 hover:bg-yt-button-chip-background-hover"
-            } cursor-pointer rounded-xl bg-yt-badge-chip-background p-3 `}
+                isMore
+                    ? "h-fit cursor-default"
+                    : "h-28 hover:bg-yt-button-chip-background-hover dark:hover:bg-yt-button-chip-background-hover-dark"
+            } cursor-pointer rounded-xl bg-yt-badge-chip-background p-3 dark:bg-yt-badge-chip-background-dark`}
             onClick={showMore}
         >
-            <p className="text-sm font-semibold">{`${numeral(viewCount).format("0,0")} views`}</p>
+            <p className="text-sm font-semibold dark:text-yt-text-primary-dark">{`${numeral(viewCount).format(
+                "0,0"
+            )} views`}</p>
             <p
                 className={`${
                     isMore
                         ? "whitespace-pre-wrap"
                         : "w-72 overflow-hidden text-ellipsis whitespace-pre-line line-clamp-3"
-                } relative text-sm font-medium `}
+                } relative text-sm font-medium dark:text-yt-text-primary-dark`}
             >
                 {description}
                 <button
                     className={`${
                         isMore ? "flex flex-col" : "absolute right-0 bottom-0 "
-                    } rounded-md bg-gray-300 bg-opacity-100 font-bold`}
+                    } rounded-md bg-gray-300 bg-opacity-100 font-bold dark:bg-yt-base-background-dark`}
                     type="button"
                     onClick={handleToggle}
                 >

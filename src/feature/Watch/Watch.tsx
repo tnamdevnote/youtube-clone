@@ -60,7 +60,9 @@ export default function Watch() {
                             ></iframe>
                         </article>
                         <div className="watch__below mt-2">
-                            <h2 className="watch__title text-xl font-semibold">{watch.snippet.title}</h2>
+                            <h2 className="watch__title text-xl font-semibold dark:text-yt-text-primary-dark">
+                                {watch.snippet.title}
+                            </h2>
                             <section className="watch__channelInfo my-2">
                                 <ChannelCard
                                     thumbnailURL={channelInfo?.snippet.thumbnails.medium.url}
