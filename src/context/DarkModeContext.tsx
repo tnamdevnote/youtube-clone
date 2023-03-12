@@ -37,6 +37,7 @@ function darkModeReducer(state: State, action: Action) {
 }
 
 export function DarkModeProvider({ children }: { children: React.ReactNode }) {
+    // TODO: optimize intialstate, so that the component don't read into localstorage or call matchMedia every render
     const [state, dispatch] = useReducer(darkModeReducer, { mode: "", isDarkMode: false });
 
     useEffect(() => {
@@ -58,7 +59,6 @@ export function DarkModeProvider({ children }: { children: React.ReactNode }) {
         }
     }, [state.mode]);
 
-    console.log(localStorage, state);
     const providerValue = useMemo(
         () => ({
             state,

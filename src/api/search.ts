@@ -4,11 +4,12 @@ const ENDPOINT = "/search";
 
 export async function getSearchResult(queryString: string) {
   const { data } = await axios.get(ENDPOINT, {
-    params: {
-      part: "snippet",
-      maxResults: 25,
-      q: queryString,
-    },
+      params: {
+          part: "snippet",
+          maxResults: 25,
+          type: "video",
+          q: queryString,
+      },
   });
 
   return data.items;
