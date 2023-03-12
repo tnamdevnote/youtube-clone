@@ -40,8 +40,6 @@ export default function Watch() {
     const channelInfo = results[0].data;
     const relatedVideos = results[1].data?.items;
 
-    console.log(relatedVideos);
-
     return (
         <main className="watch flex h-full flex-col place-items-center">
             {isLoading ? (

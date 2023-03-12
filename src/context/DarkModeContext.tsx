@@ -1,8 +1,7 @@
 import { createContext, useContext, useEffect, useMemo, useReducer } from "react";
-import useBoolean from "../hooks/useBoolean";
 
-type State = { mode: string };
-type Action = { type: "LIGHT_THEME" } | { type: "DARK_THEME" } | { type: "USE_DEVICE_SETTINGS" };
+type State = { mode: string; isDarkMode: boolean };
+type Action = { type: "LIGHT_THEME" } | { type: "DARK_THEME" } | { type: "USER_DEVICE" };
 type Dispatch = (action: Action) => void;
 interface DarkModeContextInterface {
     state: State;
@@ -11,16 +10,55 @@ interface DarkModeContextInterface {
 
 const DarkModeContext = createContext<DarkModeContextInterface | undefined>(undefined);
 
+function darkModeReducer(state: State, action: Action) {
+    switch (action.type) {
+        case "LIGHT_THEME": {
+            document.documentElement.classList.remove("dark");
+            localStorage.theme = "light";
+            return { ...state, mode: "light", isDarkMode: false };
+        }
+        case "DARK_THEME": {
+            document.documentElement.classList.add("dark");
+            localStorage.theme = "dark";
+            return { ...state, mode: "dark", isDarkMode: true };
+        }
+        case "USER_DEVICE": {
+            const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            isDarkMode
+                ? document.documentElement.classList.add("dark")
+                : document.documentElement.classList.remove("dark");
+            localStorage.theme = "userDevice";
+            return { ...state, mode: "userDevice", isDarkMode };
+        }
+        default:
+            throw new Error(`Unsupported action type`);
+    }
+}
+
 export function DarkModeProvider({ children }: { children: React.ReactNode }) {
-    const [state, dispatch] = useReducer(darkModeReducer, { mode: "" });
+    const [state, dispatch] = useReducer(darkModeReducer, { mode: "", isDarkMode: false });
 
     useEffect(() => {
-        const isDark =
-            localStorage.theme === "dark" ||
-            (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches);
-        isDark ? dispatch({ type: "DARK_THEME" }) : dispatch({ type: "LIGHT_THEME" });
+        if (localStorage.theme === "dark") {
+            dispatch({ type: "DARK_THEME" });
+        } else if (localStorage.theme === "light") {
+            dispatch({ type: "LIGHT_THEME" });
+        } else {
+            console.log("light");
+            dispatch({ type: "USER_DEVICE" });
+        }
     }, []);
 
+    useEffect(() => {
+        const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+        if (state.mode === "userDevice") {
+            mediaQuery.addEventListener("change", () => dispatch({ type: "USER_DEVICE" }));
+            return () => mediaQuery.removeEventListener("change", () => dispatch({ type: "USER_DEVICE" }));
+        }
+    }, [state.mode]);
+
+    console.log(localStorage, state);
     const providerValue = useMemo(
         () => ({
             state,
@@ -28,29 +66,8 @@ export function DarkModeProvider({ children }: { children: React.ReactNode }) {
         }),
         [state, dispatch]
     );
-    return <DarkModeContext.Provider value={providerValue}>{children}</DarkModeContext.Provider>;
-}
 
-function darkModeReducer(state: State, action: Action) {
-    switch (action.type) {
-        case "LIGHT_THEME": {
-            document.documentElement.classList.remove("dark");
-            localStorage.theme = "light";
-            return { mode: "light" };
-        }
-        case "DARK_THEME": {
-            document.documentElement.classList.add("dark");
-            localStorage.theme = "dark";
-            return { mode: "dark" };
-        }
-        case "USE_DEVICE_SETTINGS": {
-            document.documentElement.classList.remove("dark");
-            localStorage.removeItem("theme");
-            return { mode: "deviceSettings" };
-        }
-        default:
-            throw new Error(`Unsupported action type`);
-    }
+    return <DarkModeContext.Provider value={providerValue}>{children}</DarkModeContext.Provider>;
 }
 
 export function useDarkModeContext() {

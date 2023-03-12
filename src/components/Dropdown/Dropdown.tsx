@@ -7,7 +7,7 @@ import { useDarkModeContext } from "../../context/DarkModeContext";
 
 function Dropdown() {
     const { value: isOpen, setTrue: open, setFalse: close } = useBoolean();
-    const { state, dispatch } = useDarkModeContext();
+    const { state: darkMode, dispatch } = useDarkModeContext();
     const ref = useRef<HTMLUListElement | null>(null);
 
     useEffect(() => {
@@ -22,7 +22,6 @@ function Dropdown() {
         return () => document.removeEventListener("click", (e) => handleClickOutside(e));
     }, []);
 
-    console.log(state);
     return (
         <>
             <IconButton onClick={open}>
@@ -31,11 +30,11 @@ function Dropdown() {
             {isOpen && (
                 <ul
                     ref={ref}
-                    className={` absolute right-2 z-20 w-60 translate-y-2 rounded-xl bg-yt-menu-background py-2 shadow-2xl shadow-gray-600 dark:bg-yt-menu-background-dark`}
+                    className={`absolute right-2 z-20 w-60 translate-y-2 rounded-xl bg-yt-menu-background py-2 shadow-2xl shadow-gray-600 dark:bg-yt-menu-background-dark dark:shadow-gray-900`}
                 >
                     <li
                         className="cursor-pointer px-6 py-2 text-sm hover:bg-yt-button-chip-background-hover dark:text-yt-text-primary-dark dark:hover:bg-yt-button-chip-background-hover-dark"
-                        onClick={() => dispatch({ type: "USE_DEVICE_SETTINGS" })}
+                        onClick={() => dispatch({ type: "USER_DEVICE" })}
                     >
                         Use device theme
                     </li>
