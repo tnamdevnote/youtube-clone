@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import Logo from "../components/Logo/Logo";
 import SearchBar from "../components/SearchBar/SearchBar";
 import useBoolean from "../hooks/useBoolean";
