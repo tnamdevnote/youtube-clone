@@ -1,8 +1,9 @@
 import { createContext, useContext, useEffect, useMemo, useReducer } from "react";
 
 type State = { mode: string; isDarkMode: boolean };
-type Action = { type: "LIGHT_THEME" } | { type: "DARK_THEME" } | { type: "USER_DEVICE" };
+export type Action = { type: "LIGHT_THEME" } | { type: "DARK_THEME" } | { type: "USER_DEVICE" };
 type Dispatch = (action: Action) => void;
+
 interface DarkModeContextInterface {
     state: State;
     dispatch: Dispatch;
@@ -44,7 +45,6 @@ export function DarkModeProvider({ children }: { children: React.ReactNode }) {
         } else if (localStorage.theme === "light") {
             dispatch({ type: "LIGHT_THEME" });
         } else {
-            console.log("light");
             dispatch({ type: "USER_DEVICE" });
         }
     }, []);
