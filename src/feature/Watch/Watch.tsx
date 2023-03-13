@@ -45,7 +45,7 @@ export default function Watch() {
             {isLoading ? (
                 <p>Loading</p>
             ) : (
-                <div className="watch flex w-full flex-col p-6 lg:max-w-screen-xl lg:flex-row lg:justify-between">
+                <div className="watch flex w-full max-w-screen-xl flex-col p-6 lg:flex-row lg:justify-between">
                     <section className="watch__container w-full lg:mr-6 lg:min-w-0">
                         <article className="watch__player min-h-64 aspect-video w-full">
                             <iframe

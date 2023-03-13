@@ -3,9 +3,8 @@
 @tailwind utilities;
 
 @layer utilities {
-  body {
-    @apply bg-yt-base-background;
-    @apply dark:bg-yt-base-background-dark;
+  body { 
+    @apply bg-yt-base-background dark:bg-yt-base-background-dark;
   }
   .grid__card {
     aspect-ratio: 1.1 / 1;
