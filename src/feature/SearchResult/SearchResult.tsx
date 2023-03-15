@@ -1,15 +1,17 @@
 import { useQuery } from "@tanstack/react-query";
 import { Link, useParams } from "react-router-dom";
-import { getSearchResult } from "../../api/search";
+import YtSearch from "../../api/ytSearch";
+import { useApiContext } from "../../context/ApiContext";
 import ResultCard from "./ResultCard";
 
 export default function SearchResult() {
     const { query } = useParams();
+    const { search } = useApiContext();
     const {
         isLoading,
         error,
         data: searchResults,
-    } = useQuery(["search", query], async () => await getSearchResult(query ?? ""), {
+    } = useQuery(["search", query], () => search.getSearchResult(query ?? ""), {
         enabled: !!query,
         refetchOnWindowFocus: false,
     });
@@ -23,8 +25,8 @@ export default function SearchResult() {
                 <section className="max-w-4xl px-6">
                     <ul className="w-full">
                         {searchResults?.map(({ id, snippet }: any) => (
-                            <li key={id.videoId} className="my-4">
-                                <Link to={`/watch/${id.videoId}`}>
+                            <li key={id} className="my-4">
+                                <Link to={`/watch/${id}`}>
                                     <ResultCard
                                         thumbnails={snippet.thumbnails}
                                         title={snippet.title}

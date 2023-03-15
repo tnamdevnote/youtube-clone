@@ -1,17 +1,16 @@
 import { useQueries, useQuery } from "@tanstack/react-query";
 import { Link, useParams } from "react-router-dom";
-import { getVideoById } from "../../api/video";
-import { getChannelInfo } from "../../api/channels";
-import { getRelatedVideo } from "../../api/search";
 
 import MetadataCard from "./MetaDataCard";
 import ChannelCard from "./ChannelCard";
 import RelatedCard from "./RelatedCard";
+import { useApiContext } from "../../context/ApiContext";
 
 export default function Watch() {
     const { videoId } = useParams();
+    const { search, videos, channels } = useApiContext();
 
-    const { data: watch } = useQuery(["video", videoId], async () => await getVideoById(videoId ?? ""), {
+    const { data: watch } = useQuery(["video", videoId], () => videos.getVideoById(videoId ?? ""), {
         enabled: !!videoId,
         refetchOnWindowFocus: false,
     });
@@ -20,14 +19,14 @@ export default function Watch() {
         queries: [
             {
                 queryKey: ["channel", watch?.snippet.channelId],
-                queryFn: async () => await getChannelInfo(watch?.snippet.channelId),
+                queryFn: () => channels.getChannelInfo(watch?.snippet.channelId),
                 staleTime: Infinity,
                 enabled: !!watch?.snippet.channelId,
                 refetchOnWindowFocus: false,
             },
             {
                 queryKey: ["relatedVideo", videoId],
-                queryFn: async () => await getRelatedVideo(videoId ?? ""),
+                queryFn: () => search.getRelatedVideo(videoId ?? ""),
                 staleTime: Infinity,
                 enabled: !!videoId,
                 refetchOnWindowFocus: false,
@@ -38,7 +37,7 @@ export default function Watch() {
     const isLoading = results.every((result) => result.isLoading);
 
     const channelInfo = results[0].data;
-    const relatedVideos = results[1].data?.items;
+    const relatedVideos = results[1].data;
 
     return (
         <main className="watch flex h-full flex-col place-items-center">
@@ -79,8 +78,8 @@ export default function Watch() {
                     <aside className="watch__related lg:w-4/12">
                         <ul>
                             {relatedVideos?.map(({ id, snippet }: any) => (
-                                <li key={id.videoId} className="mb-2 h-24">
-                                    <Link to={`/watch/${id.videoId}`}>
+                                <li key={id} className="mb-2 h-24">
+                                    <Link to={`/watch/${id}`}>
                                         <RelatedCard
                                             thumbnails={snippet.thumbnails}
                                             title={snippet.title}
