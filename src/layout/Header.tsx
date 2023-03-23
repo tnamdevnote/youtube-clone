@@ -26,7 +26,7 @@ export default function Header() {
 
     return (
         <header className="fixed z-10 flex h-14 w-full items-center gap-2 bg-yt-menu-background px-2 dark:bg-yt-base-background-dark sm:justify-between">
-            <div className="start flex-shrink-0">
+            <div className="start flex-shrink-0 flex-grow-0">
                 {isInputFocus && !(screenWidth > breakPoint) ? (
                     <IconButton onClick={hideSearch}>
                         <ArrowBackIcon />
