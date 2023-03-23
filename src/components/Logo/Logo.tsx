@@ -8,11 +8,7 @@ function Logo() {
     const { isDarkMode } = state;
     return (
         <Link to={"/"}>
-            <img
-                className="h-14 w-full p-4"
-                src={isDarkMode ? yt_logo_rgb_dark : yt_logo_rgb_light}
-                alt="Youtube Home"
-            />
+            <img className="h-14 w-36 p-4" src={isDarkMode ? yt_logo_rgb_dark : yt_logo_rgb_light} alt="Youtube Home" />
         </Link>
     );
 }
