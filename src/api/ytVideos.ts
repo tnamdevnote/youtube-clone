@@ -1,18 +1,15 @@
-import { AxiosInstance } from "axios";
-import { axios } from "./axios";
+import YoutubeClient from "./YoutubeClient";
 
 export default class YtVideos {
-    private axios: AxiosInstance;
-    private endpoint: string;
+    private apiClient: YoutubeClient;
 
-    constructor() {
-        this.axios = axios;
-        this.endpoint = "/videos";
+    constructor(apiClient: YoutubeClient) {
+        this.apiClient = apiClient;
     }
 
     async getTrendingVideos() {
-        return this.axios
-            .get(this.endpoint, {
+        return this.apiClient
+            .videos({
                 params: {
                     part: "snippet,  contentDetails, statistics",
                     chart: "mostPopular",
@@ -24,8 +21,8 @@ export default class YtVideos {
     }
 
     async getVideoById(videoId: string) {
-        return this.axios
-            .get(this.endpoint, {
+        return this.apiClient
+            .videos({
                 params: {
                     part: "snippet, contentDetails, statistics",
                     id: videoId,

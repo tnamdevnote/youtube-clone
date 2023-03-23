@@ -1,18 +1,16 @@
-import { AxiosInstance } from "axios";
-import { axios } from "./axios";
+
+import YoutubeClient from "./YoutubeClient";
 
 export default class YtSearch {
-    private axios: AxiosInstance;
-    private endpoint: string;
+    private apiClient: YoutubeClient;
 
-    constructor() {
-        this.axios = axios;
-        this.endpoint = "/search";
+    constructor(apiClient: YoutubeClient) {
+        this.apiClient = apiClient;
     }
 
     async getSearchResult(queryString: string) {
-        return this.axios
-            .get(this.endpoint, {
+        return this.apiClient
+            .search({
                 params: {
                     part: "snippet",
                     maxResults: 25,
@@ -25,8 +23,8 @@ export default class YtSearch {
     }
 
     async getRelatedVideo(videoId: string) {
-        return this.axios
-            .get(this.endpoint, {
+        return this.apiClient
+            .search({
                 params: {
                     part: "snippet",
                     maxResults: 25,

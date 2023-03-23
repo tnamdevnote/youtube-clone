@@ -1,18 +1,17 @@
 import { AxiosInstance } from "axios";
 import { axios } from "./axios";
+import YoutubeClient from "./YoutubeClient";
 
 export default class YtChannels {
-    private axios: AxiosInstance;
-    private endpoint: string;
+    private apiClient: YoutubeClient;
 
-    constructor() {
-        this.axios = axios;
-        this.endpoint = "/channels";
+    constructor(apiClient: YoutubeClient) {
+        this.apiClient = apiClient;
     }
 
     async getChannelInfo(channelId: string) {
-        return this.axios
-            .get(this.endpoint, {
+        return this.apiClient
+            .channels({
                 params: {
                     part: "snippet, contentDetails, statistics",
                     id: channelId,
