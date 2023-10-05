@@ -5,10 +5,10 @@ interface SearchResult {
     q: string;
 }
 
-interface RelatedVideos {
+interface ChannelVideos {
     part: string;
     maxResults: number;
-    relatedToVideoId: string;
+    channelId: string;
     type: string;
 }
 
@@ -29,10 +29,18 @@ interface ChannelInfo {
     id: string;
 }
 
-export type Search = SearchResult | RelatedVideos;
+export type Search = SearchResult | ChannelVideos;
 export type Videos = TrendingVideos | VideoById;
 export type Channels = ChannelInfo;
 
 export interface Params<P> {
     params: P;
 }
+
+/** Deprecated api endpoint */
+// interface RelatedVideos {
+//     part: string;
+//     maxResults: number;
+//     relatedToVideoId: string;
+//     type: string;
+// }

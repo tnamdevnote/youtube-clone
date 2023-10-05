@@ -14,7 +14,7 @@ export default function Watch() {
         enabled: !!videoId,
         refetchOnWindowFocus: false,
     });
-
+    console.log(watch?.snippet.channelId);
     const results = useQueries({
         queries: [
             {
@@ -25,10 +25,10 @@ export default function Watch() {
                 refetchOnWindowFocus: false,
             },
             {
-                queryKey: ["relatedVideo", videoId],
-                queryFn: () => search.getRelatedVideo(videoId ?? ""),
+                queryKey: ["channelVideos", watch?.snippet.channelId],
+                queryFn: () => search.getChannelVideos(watch?.snippet.channelId ?? ""),
                 staleTime: Infinity,
-                enabled: !!videoId,
+                enabled: !!watch?.snippet.channelId,
                 refetchOnWindowFocus: false,
             },
         ],
