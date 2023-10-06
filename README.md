@@ -91,6 +91,7 @@ Following are the list of features within the scope of this project:
 
 📍 **[Separating API Layer from the app to improve maintainability](https://github.com/tnamdevnote/youtube-clone/blob/main/src/context/YoutubeAPIContext.tsx)**
 - Use Dependency Injection pattern & React Context API to loosen up dependency between API layer and the application <br>
+- [Use ReactQuery](https://github.com/tnamdevnote/youtube-clone/blob/main/src/feature/SearchResult/SearchResult.tsx) to handle data fetching, providing eaiser way to manage loading state and error
 
   <img height="500px" src="https://github.com/tnamdevnote/youtube-clone/assets/44216709/fc82bb79-2497-460f-b067-07aa80927632" />
   <img height="500px" src="https://github.com/tnamdevnote/youtube-clone/assets/44216709/45e93c73-eb46-4c6b-8a35-06cb188f66db" />
@@ -112,8 +113,6 @@ Following are the list of features within the scope of this project:
 📍 **["Use device setting" option for dark mode](https://github.com/tnamdevnote/youtube-clone/blob/main/src/context/DarkModeContext.tsx)**
 
   ![Screen Recording 2023-10-05 at 10 09 19 PM](https://github.com/tnamdevnote/youtube-clone/assets/44216709/e20f779d-0e09-458a-aa67-f179fe747af4)
-
-📍 **[Data fetching with ReactQuery](https://github.com/tnamdevnote/youtube-clone/blob/main/src/feature/SearchResult/SearchResult.tsx)**
 
 # Installation
 
