@@ -12,7 +12,7 @@
 <h4>
   <a href="https://yt-demo.netlify.app/">Click here to see the demo!</a>
 </h4>
-![Alt text](<Screen Recording 2023-10-05 at 9.22.23 PM.gif>)
+
 ### Table of content
 
 -   [About](#about)
