@@ -18,7 +18,7 @@
 -   [About](#about)
 -   [Features](#features)
 -   [Things I've learned](#things-ive-learned)
--   [Installation & Set up](#installation--set-up)
+-   [Installation & Set up](#installation)
 
 <br>
 <br>
@@ -95,3 +95,8 @@ Following are the list of features within the scope of this project:
     This information required to successfully pull the data from [Youtube Data API](https://www.google.com/search?q=youtube+data+api&oq=youtube+data+api&gs_lcrp=EgZjaHJvbWUyDwgAEEUYORiDARixAxiABDIHCAEQABiABDIHCAIQABiABDIHCAMQABiABDIHCAQQABiABDIGCAUQRRg8MgYIBhBFGDwyBggHEEUYPNIBCDI5OThqMGoxqAIAsAIA&sourceid=chrome&ie=UTF-8) endpoints. If you don't have your own youtube api key, follow the instruction [here](https://developers.google.com/youtube/v3/getting-started).
 
 3. Start the project using `yarn dev`.
+
+# TODO
+
+-   [ ] Add proper loading fallback and 404 page
+-   [ ] Fix encoding issues "&#39" on video title
