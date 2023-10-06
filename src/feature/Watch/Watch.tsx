@@ -14,7 +14,7 @@ export default function Watch() {
         enabled: !!videoId,
         refetchOnWindowFocus: false,
     });
-    console.log(watch?.snippet.channelId);
+
     const results = useQueries({
         queries: [
             {
