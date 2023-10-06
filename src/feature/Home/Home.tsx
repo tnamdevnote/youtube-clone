@@ -2,10 +2,10 @@ import Card from "../../components/Card/Card";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import TimeFormatter from "../../components/TimeFormatter/TimeFormatter";
-import { useApiContext } from "../../context/ApiContext";
+import { useYoutubeAPI } from "../../context/ApiContext";
 
 export default function Home() {
-    const { videos } = useApiContext();
+    const { videos } = useYoutubeAPI();
     const {
         isLoading,
         error,

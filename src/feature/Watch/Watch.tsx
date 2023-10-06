@@ -4,11 +4,11 @@ import { Link, useParams } from "react-router-dom";
 import MetadataCard from "./MetaDataCard";
 import ChannelCard from "./ChannelCard";
 import RelatedCard from "./RelatedCard";
-import { useApiContext } from "../../context/ApiContext";
+import { useYoutubeAPI } from "../../context/ApiContext";
 
 export default function Watch() {
     const { videoId } = useParams();
-    const { search, videos, channels } = useApiContext();
+    const { search, videos, channels } = useYoutubeAPI();
 
     const { data: watch } = useQuery(["video", videoId], () => videos.getVideoById(videoId ?? ""), {
         enabled: !!videoId,

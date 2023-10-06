@@ -90,7 +90,7 @@ Following are the list of features within the scope of this project:
 
 1. **Separating API Layer from the app to improve maintainability** - Dependency Injection & React Context API
 2. **Data fetching with ReactQuery (feat. caching)**
-3. **Importance of carefully organized color scheme** - Reduce maintenance cost and allow quick modification - e.g. Dark Mode
+3. **Importance of carefully organized color scheme** - Reduce maintenance cost and allow quick modification while preserving consistency in look
 4. **Responsive UI isn't always about using media query** - Observing resize event with React
 5. **Compound component pattern to enhance reusability and scalability**
 6. **"Use device setting" option for dark mode**
@@ -103,7 +103,7 @@ Following are the list of features within the scope of this project:
     yarn add
     ```
 
-2. Once finished, you would need to configure `.env.local` file and add it to the root directory of the project. Within the `.env.local` file, add following code and save it. (make sure that `.gitignore` file ignore any `.env` or `.local` file format)
+2. Once finished, be sure to add `.env.local` to the root directory of the project. Within the `.env.local` file, add following code and save it. (make sure that `.gitignore` file ignore any `.env` or `.local` file format)
 
     ```
     VITE_YOUTUBE_API_BASE_URL=https://youtube.googleapis.com/youtube/v3
@@ -112,7 +112,11 @@ Following are the list of features within the scope of this project:
 
     This information required to successfully pull the data from [Youtube Data API](https://www.google.com/search?q=youtube+data+api&oq=youtube+data+api&gs_lcrp=EgZjaHJvbWUyDwgAEEUYORiDARixAxiABDIHCAEQABiABDIHCAIQABiABDIHCAMQABiABDIHCAQQABiABDIGCAUQRRg8MgYIBhBFGDwyBggHEEUYPNIBCDI5OThqMGoxqAIAsAIA&sourceid=chrome&ie=UTF-8) endpoints. If you don't have your own youtube api key, follow the instruction [here](https://developers.google.com/youtube/v3/getting-started).
 
-3. Start the project using `yarn dev`.
+3. To start the project run:
+
+    ```
+    yarn dev
+    ```
 
 # TODO
 

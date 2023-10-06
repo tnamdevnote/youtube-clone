@@ -1,12 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import { Link, useParams } from "react-router-dom";
 import YtSearch from "../../api/ytSearch";
-import { useApiContext } from "../../context/ApiContext";
+import { useYoutubeAPI } from "../../context/ApiContext";
 import ResultCard from "./ResultCard";
 
 export default function SearchResult() {
     const { query } = useParams();
-    const { search } = useApiContext();
+    const { search } = useYoutubeAPI();
     const {
         isLoading,
         error,
