@@ -11,13 +11,12 @@ interface YoutubeAPIContextInterface {
 }
 
 const YoutubeAPIContext = createContext<YoutubeAPIContextInterface | undefined>(undefined);
+const YtClient = new YoutubeClient();
+const search = new YtSearch(YtClient);
+const videos = new YtVideos(YtClient);
+const channels = new YtChannels(YtClient);
 
-export function ApiProvider({ children }: { children: React.ReactNode }) {
-    const YtClient = new YoutubeClient();
-    const search = new YtSearch(YtClient);
-    const videos = new YtVideos(YtClient);
-    const channels = new YtChannels(YtClient);
-
+export function YoutubeAPIProvider({ children }: { children: React.ReactNode }) {
     const providerValue = {
         search,
         videos,
@@ -31,7 +30,7 @@ export function useYoutubeAPI() {
     const context = useContext(YoutubeAPIContext);
 
     if (!context) {
-        throw new Error("The context must be used within ApiProvider");
+        throw new Error("The context must be used within YoutubeAPIProvider");
     }
 
     return context;

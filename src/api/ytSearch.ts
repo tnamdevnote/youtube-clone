@@ -20,7 +20,7 @@ export default class YtSearch {
             .then((res) => res.data.items)
             .then((items) => items.map((item: any) => ({ ...item, id: item.id.videoId })));
     }
-    /** Use this as the alternative to getRelatedVideo. */
+    /** Use this as an alternative to getRelatedVideo. */
     async getChannelVideos(channelId: string) {
         return this.apiClient
             .search({

@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Outlet } from "react-router-dom";
-import { ApiProvider } from "../context/YoutubeAPIContext";
+import { YoutubeAPIProvider } from "../context/YoutubeAPIContext";
 import Header from "./Header";
 import PageManager from "./PageManager";
 
@@ -11,11 +11,11 @@ export default function Root() {
         <>
             <Header />
             <PageManager>
-                <ApiProvider>
+                <YoutubeAPIProvider>
                     <QueryClientProvider client={queryClient}>
                         <Outlet />
                     </QueryClientProvider>
-                </ApiProvider>
+                </YoutubeAPIProvider>
             </PageManager>
         </>
     );
