@@ -1,4 +1,4 @@
-<h1>Youtube Clone Project</h1> <p>
+<h1 align="center">Youtube Clone Project</h1> <p>
   <a href="https://react.dev/">
     <img src="https://img.shields.io/badge/React-18.2.0-blue" />
   </a>
@@ -73,7 +73,7 @@ Following are the list of features within the scope of this project:
     -   Display channel info and subscriber counts
     -   Show more info card
 
-<em>\*The features of this project is based on [Youtube](https://www.youtube.com/) on March 07th, 2023.</em>
+<em>\*The features of this project is based on [Youtube](https://www.youtube.com/) on March 7th, 2023.</em>
 
 # Things I've learned
 
@@ -98,5 +98,7 @@ Following are the list of features within the scope of this project:
 
 # TODO
 
+-   [x] Replace deprecated API parameter(`relatedToVideoId`)
+    -   As of August 7th, 2023, [Youtube](https://developers.google.com/youtube/v3/revision_history#june-12,-2023) have discontinued their support for `relatedToVideoId` parameter from `search.list` method and it's no longer part of public API. Due to this change, I've redirected API call to retrieve a list of videos from a given channel with `channelId` instead of `relatedToVideoId`.
 -   [ ] Add proper loading fallback and 404 page
 -   [ ] Fix encoding issues "&#39" on video title
