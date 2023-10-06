@@ -61,21 +61,22 @@ The main goal of this project was to apply the concepts and lessons I learned ab
 
 Following are the list of features within the scope of this project:
 
--   Responsive UI
-    -   Search bar
-    -   Grid Layout
-    -   Video Card Component
--   Dark Mode
-    -   includes option for user's device theme
--   Home
-    -   regular youtube grid layout
--   Search
-    -   search by keywords
--   Watch
-    -   Play youtube video
-    -   Display list of related videos
-    -   Display channel info and subscriber counts
-    -   Show more info card
+#### Responsive Grid Layout
+![Screen Recording 2023-10-05 at 10 01 47 PM](https://github.com/tnamdevnote/youtube-clone/assets/44216709/63ff4748-ed9f-4c16-ab36-093b9df161df)
+
+#### Dark Mode
+###### includes option for user's device theme
+![Screen Recording 2023-10-05 at 10 09 19 PM](https://github.com/tnamdevnote/youtube-clone/assets/44216709/e20f779d-0e09-458a-aa67-f179fe747af4)
+
+#### Browsing & Streaming
+  -   Search for any desired clips
+  -   Click on the video cards to play the clips
+  -   Display list of related videos (update: replaced w/ channel videos)
+  -   Display channel info and subscriber counts
+  -   Show more info card
+
+![Screen Recording 2023-10-05 at 10 23 57 PM](https://github.com/tnamdevnote/youtube-clone/assets/44216709/72000151-79cd-47c1-aedc-98742dc7ef74)
+
 
 <em>\*The features of this project is based on [Youtube](https://www.youtube.com/) on March 7th, 2023.</em>
 
