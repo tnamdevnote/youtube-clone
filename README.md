@@ -1,4 +1,5 @@
-<h1 align="center">Youtube Clone Project</h1> <p>
+<h1><img src="src/assets/logo/yt-favicon_rgb.png"/> Youtube Clone Project</h1> <p>
+
   <a href="https://react.dev/">
     <img src="https://img.shields.io/badge/React-18.2.0-blue" />
   </a>
@@ -10,18 +11,17 @@
   A Youtube clone coding project that built with <a href="https://react.dev/">React</a> and hosted with <a href="https://www.netlify.com/">Netlify</a>.
 </p>
 <h4>
-  <a href="https://yt-demo.netlify.app/">Click here to see the demo!</a>
+  <a href="https://yt-demo.netlify.app/" target="_blank">Click here</a> to see the demo!
 </h4>
 
 ![Screen Recording 2023-10-05 at 9 41 45 PM](https://github.com/tnamdevnote/youtube-clone/assets/44216709/0e4b5717-2f2c-4071-9551-78041d1b0fa1)
-
 
 ### Table of content
 
 -   [About](#about)
 -   [Features](#features)
 -   [Things I've learned](#things-ive-learned)
--   [Installation & Set up](#installation)
+-   [Installation](#installation)
 -   [Todo](#todo)
 
 <br>
@@ -29,19 +29,21 @@
 
 # About
 
-I wanted to challenge myself and see if I could recreate some of the features from [Youtube](https://www.youtube.com/) on my own, starting from scratch. By doing so, I not only have the opportunity to learn about areas that I may not be familiar with, but I can also enhance my problem-solving skills. Therefore, I took on this project <b>without relying on any tutorials for assistance.</b>
-
 ### Goal
 
-The main goal of this project was to apply the concepts and lessons I learned about React and Frontend Development in general. Following are three areas of focus that I wanted to improve on:
+The main goal of this project was to apply the concepts and lessons I learned about React and Frontend Development in general.
+I wanted to challenge myself and see if I could recreate some of the features from [Youtube](https://www.youtube.com/) on my own, <b>without relying on any tutorials</b> <br>
+
+Following are the areas that I wanted to focus on practicing:
 
 -   Implementing clean, polished, and responsive user interface
 -   Managing color scheme and themes effectively to achieve consistent look and feel of the overall design
--   Practice handling data fetching and setting up API layers in the application
+-   Data fetching and handling API endpoints efficiently in the application
+-   Apply React Context API and useReducer to handle complicated state management
 
 ### Tech Stack
 
-##### Platform
+##### Frameworks & Libraries
 
 -   Netlify
 -   Vite
@@ -61,25 +63,37 @@ The main goal of this project was to apply the concepts and lessons I learned ab
 Following are the list of features within the scope of this project:
 
 #### Responsive Grid Layout
+
 ![Screen Recording 2023-10-05 at 10 01 47 PM](https://github.com/tnamdevnote/youtube-clone/assets/44216709/63ff4748-ed9f-4c16-ab36-093b9df161df)
 
 #### Dark Mode
-###### includes option for user's device theme
+
+-   Includes option for user's device theme
+
 ![Screen Recording 2023-10-05 at 10 09 19 PM](https://github.com/tnamdevnote/youtube-clone/assets/44216709/e20f779d-0e09-458a-aa67-f179fe747af4)
 
 #### Browsing & Streaming
-  -   Search for any desired clips
-  -   Click on the video cards to play the clips
-  -   Display list of related videos (update: replaced w/ channel videos)
-  -   Display channel info and subscriber counts
-  -   Show more info card
+
+-   Search clips
+-   Click on the video cards to play the clips
+-   Display list of related videos (update: replaced w/ channel videos)
+-   Display channel info and subscriber counts
+-   Show more info card
 
 ![Screen Recording 2023-10-05 at 10 23 57 PM](https://github.com/tnamdevnote/youtube-clone/assets/44216709/72000151-79cd-47c1-aedc-98742dc7ef74)
-
 
 <em>\*The features of this project is based on [Youtube](https://www.youtube.com/) on March 7th, 2023.</em>
 
 # Things I've learned
+
+### Key Takeaways
+
+1. **Separating API Layer from the app to improve maintainability** - Dependency Injection & React Context API
+2. **Data fetching with ReactQuery (feat. caching)**
+3. **Importance of carefully organized color scheme** - Reduce maintenance cost and allow quick modification - e.g. Dark Mode
+4. **Responsive UI isn't always about using media query** - Observing resize event with React
+5. **Compound component pattern to enhance reusability and scalability**
+6. **"Use device setting" option for dark mode**
 
 # Installation
 
