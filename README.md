@@ -13,6 +13,9 @@
   <a href="https://yt-demo.netlify.app/">Click here to see the demo!</a>
 </h4>
 
+![Screen Recording 2023-10-05 at 9 41 45 PM](https://github.com/tnamdevnote/youtube-clone/assets/44216709/0e4b5717-2f2c-4071-9551-78041d1b0fa1)
+
+
 ### Table of content
 
 -   [About](#about)
