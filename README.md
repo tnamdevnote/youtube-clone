@@ -29,8 +29,7 @@
 
 # About
 
-I took on this project <b>without relying on any tutorials for assistance.</b> <br>
-I wanted to challenge myself and see if I could recreate some of the features from [Youtube](https://www.youtube.com/) on my own, starting from scratch. By doing so, I not only have the opportunity to learn about areas that I may not be familiar with, but I can also enhance my problem-solving skills.
+I wanted to challenge myself and see if I could recreate some of the features from [Youtube](https://www.youtube.com/) on my own, starting from scratch. By doing so, I not only have the opportunity to learn about areas that I may not be familiar with, but I can also enhance my problem-solving skills. Therefore, I took on this project <b>without relying on any tutorials for assistance.</b>
 
 ### Goal
 
