@@ -88,12 +88,32 @@ Following are the list of features within the scope of this project:
 
 ### Key Takeaways
 
-1. **Separating API Layer from the app to improve maintainability** - Dependency Injection & React Context API
-2. **Data fetching with ReactQuery (feat. caching)**
-3. **Importance of carefully organized color scheme** - Reduce maintenance cost and allow quick modification while preserving consistency in look
-4. **Responsive UI isn't always about using media query** - Observing resize event with React
-5. **Compound component pattern to enhance reusability and scalability**
-6. **"Use device setting" option for dark mode**
+📍 **[Separating API Layer from the app to improve maintainability](https://github.com/tnamdevnote/youtube-clone/blob/main/src/context/YoutubeAPIContext.tsx)**
+- Use Dependency Injection pattern & React Context API to loosen up dependency between API layer and the application <br>
+
+  <img height="500px" src="https://github.com/tnamdevnote/youtube-clone/assets/44216709/fc82bb79-2497-460f-b067-07aa80927632" />
+  <img height="500px" src="https://github.com/tnamdevnote/youtube-clone/assets/44216709/45e93c73-eb46-4c6b-8a35-06cb188f66db" />
+
+📍 **[Data fetching with ReactQuery](https://github.com/tnamdevnote/youtube-clone/blob/main/src/feature/SearchResult/SearchResult.tsx)**
+
+📍 **[Importance of carefully organized color scheme](https://github.com/tnamdevnote/youtube-clone/blob/main/tailwind.config.cjs)**
+- Reduce maintenance cost and allow quick modification while preserving consistency in look
+
+📍 **[Responsive UI isn't always about using media query]()** 
+- Observing resize event with React
+
+📍 **[Compound component pattern to enhance reusability and scalability](https://github.com/tnamdevnote/youtube-clone/tree/main/src/components/Card)**
+- Created reusable `<Card />` component that can be composed into different variations<br>
+- `<Card />` has been used to build [`<RelatedCard>`](https://github.com/tnamdevnote/youtube-clone/blob/main/src/feature/Watch/RelatedCard.tsx), [`<ChannelCard />`](https://github.com/tnamdevnote/youtube-clone/blob/main/src/feature/Watch/ChannelCard.tsx), and [other cards](https://github.com/tnamdevnote/youtube-clone/blob/main/src/feature/Home/Home.tsx) used through out the app.
+
+  <img height="300px" src="https://github.com/tnamdevnote/youtube-clone/assets/44216709/96a9b5c4-1a0c-4b1b-a48a-58ba1102741e" />
+  <img width="500px" src="https://github.com/tnamdevnote/youtube-clone/assets/44216709/7c794c6c-5e8c-4380-9c30-7360026a1053" />
+  <img width="500px" src="https://github.com/tnamdevnote/youtube-clone/assets/44216709/564fd03a-4ec1-431d-8ff3-5d253634118e" />
+
+
+📍 **["Use device setting" option for dark mode](https://github.com/tnamdevnote/youtube-clone/blob/main/src/context/DarkModeContext.tsx)**
+
+  ![Screen Recording 2023-10-05 at 10 09 19 PM](https://github.com/tnamdevnote/youtube-clone/assets/44216709/e20f779d-0e09-458a-aa67-f179fe747af4)
 
 # Installation
 
