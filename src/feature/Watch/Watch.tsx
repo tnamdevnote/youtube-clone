@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import MetadataCard from "./MetaDataCard";
 import ChannelCard from "./ChannelCard";
 import RelatedCard from "./RelatedCard";
-import { useYoutubeAPI } from "../../context/ApiContext";
+import { useYoutubeAPI } from "../../context/YoutubeAPIContext";
 
 export default function Watch() {
     const { videoId } = useParams();

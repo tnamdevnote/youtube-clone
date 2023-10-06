@@ -4,13 +4,13 @@ import YtChannels from "../api/ytChannels";
 import YtSearch from "../api/ytSearch";
 import YtVideos from "../api/ytVideos";
 
-interface ApiContextInterface {
+interface YoutubeAPIContextInterface {
     search: YtSearch;
     videos: YtVideos;
     channels: YtChannels;
 }
 
-const ApiContext = createContext<ApiContextInterface | undefined>(undefined);
+const YoutubeAPIContext = createContext<YoutubeAPIContextInterface | undefined>(undefined);
 
 export function ApiProvider({ children }: { children: React.ReactNode }) {
     const YtClient = new YoutubeClient();
@@ -24,11 +24,11 @@ export function ApiProvider({ children }: { children: React.ReactNode }) {
         channels,
     };
 
-    return <ApiContext.Provider value={providerValue}>{children}</ApiContext.Provider>;
+    return <YoutubeAPIContext.Provider value={providerValue}>{children}</YoutubeAPIContext.Provider>;
 }
 
 export function useYoutubeAPI() {
-    const context = useContext(ApiContext);
+    const context = useContext(YoutubeAPIContext);
 
     if (!context) {
         throw new Error("The context must be used within ApiProvider");
