@@ -19,6 +19,7 @@
 -   [Features](#features)
 -   [Things I've learned](#things-ive-learned)
 -   [Installation & Set up](#installation)
+-   [Todo](#todo)
 
 <br>
 <br>
