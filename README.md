@@ -13,6 +13,7 @@
 <h4>
   <a href="https://yt-demo.netlify.app/" target="_blank">Click here</a> to see the demo!
 </h4>
+</p>
 
 ![Screen Recording 2023-10-05 at 9 41 45 PM](https://github.com/tnamdevnote/youtube-clone/assets/44216709/0e4b5717-2f2c-4071-9551-78041d1b0fa1)
 
@@ -94,13 +95,11 @@ Following are the list of features within the scope of this project:
   <img height="500px" src="https://github.com/tnamdevnote/youtube-clone/assets/44216709/fc82bb79-2497-460f-b067-07aa80927632" />
   <img height="500px" src="https://github.com/tnamdevnote/youtube-clone/assets/44216709/45e93c73-eb46-4c6b-8a35-06cb188f66db" />
 
-📍 **[Data fetching with ReactQuery](https://github.com/tnamdevnote/youtube-clone/blob/main/src/feature/SearchResult/SearchResult.tsx)**
-
 📍 **[Importance of carefully organized color scheme](https://github.com/tnamdevnote/youtube-clone/blob/main/tailwind.config.cjs)**
+- Although Youtube's color scheme may seem fairly simple at a first glance, it turns out that Youtube's color palette is a lot more 
 - Reduce maintenance cost and allow quick modification while preserving consistency in look
 
-📍 **[Responsive UI isn't always about using media query]()** 
-- Observing resize event with React
+  <img height="500px" src="https://github.com/tnamdevnote/youtube-clone/assets/44216709/ab256537-b077-42d4-8568-6fefa49cd45e" />
 
 📍 **[Compound component pattern to enhance reusability and scalability](https://github.com/tnamdevnote/youtube-clone/tree/main/src/components/Card)**
 - Created reusable `<Card />` component that can be composed into different variations<br>
@@ -110,10 +109,11 @@ Following are the list of features within the scope of this project:
   <img width="500px" src="https://github.com/tnamdevnote/youtube-clone/assets/44216709/7c794c6c-5e8c-4380-9c30-7360026a1053" />
   <img width="500px" src="https://github.com/tnamdevnote/youtube-clone/assets/44216709/564fd03a-4ec1-431d-8ff3-5d253634118e" />
 
-
 📍 **["Use device setting" option for dark mode](https://github.com/tnamdevnote/youtube-clone/blob/main/src/context/DarkModeContext.tsx)**
 
   ![Screen Recording 2023-10-05 at 10 09 19 PM](https://github.com/tnamdevnote/youtube-clone/assets/44216709/e20f779d-0e09-458a-aa67-f179fe747af4)
+
+📍 **[Data fetching with ReactQuery](https://github.com/tnamdevnote/youtube-clone/blob/main/src/feature/SearchResult/SearchResult.tsx)**
 
 # Installation
 
