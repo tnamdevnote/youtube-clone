@@ -103,7 +103,7 @@ Following are the list of features within the scope of this project:
   <img height="500px" src="https://github.com/tnamdevnote/youtube-clone/assets/44216709/ab256537-b077-42d4-8568-6fefa49cd45e" />
 
 📍 **[Compound component pattern to enhance reusability and scalability](https://github.com/tnamdevnote/youtube-clone/tree/main/src/components/Card)**
-- Created reusable `<Card />` component that can be composed into different variations<br>
+- Created reusable [`<Card />`](https://github.com/tnamdevnote/youtube-clone/tree/main/src/components/Card) component that can be composed into different variations<br>
 - `<Card />` has been used to build [`<RelatedCard>`](https://github.com/tnamdevnote/youtube-clone/blob/main/src/feature/Watch/RelatedCard.tsx), [`<ChannelCard />`](https://github.com/tnamdevnote/youtube-clone/blob/main/src/feature/Watch/ChannelCard.tsx), and [other cards](https://github.com/tnamdevnote/youtube-clone/blob/main/src/feature/Home/Home.tsx) used through out the app.
 
   <img height="300px" src="https://github.com/tnamdevnote/youtube-clone/assets/44216709/96a9b5c4-1a0c-4b1b-a48a-58ba1102741e" />
