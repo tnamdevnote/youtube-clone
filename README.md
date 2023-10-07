@@ -63,17 +63,17 @@ Following are the areas that I wanted to focus on practicing:
 
 Following are the list of features within the scope of this project:
 
-#### Responsive Grid Layout
+### Responsive Grid Layout
 
 ![Screen Recording 2023-10-05 at 10 01 47 PM](https://github.com/tnamdevnote/youtube-clone/assets/44216709/63ff4748-ed9f-4c16-ab36-093b9df161df)
 
-#### Dark Mode
+### Dark Mode
 
 -   Includes option for user's device theme
 
 ![Screen Recording 2023-10-05 at 10 09 19 PM](https://github.com/tnamdevnote/youtube-clone/assets/44216709/e20f779d-0e09-458a-aa67-f179fe747af4)
 
-#### Browsing & Streaming
+### Browsing & Streaming
 
 -   Search clips
 -   Click on the video cards to play the clips
