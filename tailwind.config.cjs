@@ -18,6 +18,7 @@ module.exports = {
                 "yt-red": "#FF0000",
                 "yt-almost-black": "#282828",
                 "yt-base-background": "#fff",
+                "yt-raised-background": "#fff",
                 "yt-menu-background": "#fff",
                 "yt-text-primary": "#0f0f0f",
                 "yt-text-primary-inverse": "#fff",
