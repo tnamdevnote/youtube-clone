@@ -4,7 +4,6 @@ import NotFound from "./feature/Fallback/NotFound";
 import Root from "./layout/Root";
 import SearchResult from "./feature/SearchResult/SearchResult";
 import Watch from "./feature/Watch/Watch";
-import { useEffect } from "react";
 
 const router = createBrowserRouter([
     {

@@ -1,5 +1,6 @@
 import Axios, { AxiosInstance } from "axios";
 import { ChannelInfo, Params, Search, Videos } from "./types";
+
 export default class YoutubeClient {
     httpClient: AxiosInstance;
 
