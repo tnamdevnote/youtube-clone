@@ -10,9 +10,7 @@ export default function Home() {
         isLoading,
         error,
         data: trendingVideos,
-    } = useQuery(["most-recent"], () => videos.getTrendingVideos(), {
-        staleTime: 10000,
-    });
+    } = useQuery({ queryKey: ["most-recent"], queryFn: () => videos.getTrendingVideos(), staleTime: 10000 });
     console.log(videos);
     return (
         <main className="flex h-full flex-col place-items-center dark:bg-yt-base-background-dark">

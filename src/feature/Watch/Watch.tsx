@@ -10,7 +10,9 @@ export default function Watch() {
     const { videoId } = useParams();
     const { search, videos, channels } = useYoutubeAPI();
 
-    const { data: watch } = useQuery(["video", videoId], () => videos.getVideoById(videoId ?? ""), {
+    const { data: watch } = useQuery({
+        queryKey: ["video", videoId],
+        queryFn: () => videos.getVideoById(videoId ?? ""),
         enabled: !!videoId,
         refetchOnWindowFocus: false,
     });

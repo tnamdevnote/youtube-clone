@@ -11,7 +11,9 @@ export default function SearchResult() {
         isLoading,
         error,
         data: searchResults,
-    } = useQuery(["search", query], () => search.getSearchResult(query ?? ""), {
+    } = useQuery({
+        queryKey: ["search", query],
+        queryFn: () => search.getSearchResult(query ?? ""),
         enabled: !!query,
         refetchOnWindowFocus: false,
     });
